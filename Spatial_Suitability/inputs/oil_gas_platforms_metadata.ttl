@@ -1,0 +1,100 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns0: <http://www.w3.org/ns/locn#> .
+@prefix ns1: <https://www.iana.org/assignments/media-types/application/vnd.geo+> .
+@prefix ns2: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+<https://emodnet.ec.europa.eu/geonetwork/srv/resources/catalogs/8a7f033d-352f-4ad8-846e-b33efb0e9121>
+  a dcat:Catalog ;
+  dc:title "EMODnet Product Catalogue "@en ;
+  dc:language <http://publications.europa.eu/resource/authority/language/ENG> ;
+  dc:description """EMODnet Product Catalogue  (EMODnet)
+      """@en ;
+  dc:publisher <https://emodnet.ec.europa.eu/geonetwork/srv/resources/organizations/EMODnet> ;
+  foaf:homepage <http://njh.me/> ;
+  dc:issued "2019-09-01"^^xsd:date ;
+  dc:modified "2019-09-01"^^xsd:date ;
+  dcat:themeTaxonomy <https://emodnet.ec.europa.eu/geonetwork/srv/resources/registries/vocabularies/external.place.regions> .
+
+<http://publications.europa.eu/resource/authority/language/ENG>
+  a skos:Concept, dc:LinguisticSystem ;
+  skos:prefLabel "English"@en, "Englisch"@de, "anglais"@fr, "Engels"@nl ;
+  skos:inScheme <http://publications.europa.eu/resource/authority/language> .
+
+<https://emodnet.ec.europa.eu/geonetwork/srv/resources/organizations/EMODnet>
+  a foaf:Agent ;
+  foaf:name "EMODnet"@en .
+
+<http://njh.me/>
+  a foaf:Document, skos:Concept ;
+  foaf:name "EMODnet Product Catalogue "@en ;
+  skos:prefLabel "energy"@en, "hydrocarbon"@en, "oil exploration"@en, "oil extraction"@en, "offshore drilling"@en, "oil production (chain)"@en, "petroleum industry"@en ;
+  skos:inScheme <http://njh.me/> .
+
+<https://emodnet.ec.europa.eu/geonetwork/srv/resources/registries/vocabularies/external.place.regions>
+  a skos:ConceptScheme ;
+  dc:title "Continents, countries, sea regions of the world."@en ;
+  foaf:isPrimaryTopicOf "thesaurus.download?ref=external.place.regions" .
+
+<https://emodnet.ec.europa.eu/geonetwork/srv/resources/records/ddbe3597-4e3f-4e74-8d31-947c4efef2e9>
+  a dcat:CatalogRecord ;
+  foaf:primaryTopic <https://emodnet.ec.europa.eu/geonetwork/srv/resources/resources/ddbe3597-4e3f-4e74-8d31-947c4efef2e9> ;
+  dc:language <http://publications.europa.eu/resource/authority/language/ENG> ;
+  dc:modified "2022-10-04"^^xsd:date .
+
+<https://emodnet.ec.europa.eu/geonetwork/srv/resources/resources/ddbe3597-4e3f-4e74-8d31-947c4efef2e9>
+  a dcat:Dataset ;
+  dc:title "EMODnet Human Activities, Oil and Gas, Offshore Installations"@en ;
+  dc:description "The dataset on offshore installations for Oil and Gas exploitation and exploration activities was created in 2015 by Cogea for the European Marine Observation and Data Network (EMODnet). It is the result of the aggregation and harmonization of datasets provided by several EU and non-EU sources. It is updated every year, and is available for viewing and download on EMODnet Human Activities web portal (https://emodnet.ec.europa.eu/en/human-activities). It contains points representing offshore installations and where available each point has the following attributes: ID, name, country, location block, operator, production start year, primary production, current status, category and function of the installation, sub-structure and topside weights (tonnes), water depth (metres), distance to coast (metres) and notes. The OSPAR commission source covers data for Germany, Ireland, Spain (Atlantic Sea), while for Italy data have been collected and harmonized from the Italian Ministry of Economic Development, for Denmark from the Danish Energy Agency, for the Netherlands from the TNO - Geological Survey of the Netherlands, for Croatia from the Croatian Hydrocarbon Agency, for Norway from the Norwegian Petroleum Directorate, for the UK from the Oil and Gas Authority (surface infrastructures), for Polish and Russian installations in the Baltic Sea from Marine Traffic and Helcom, finally from Marine Traffic come the data for Bulgarian, Russian and Ukrainian installations in the Black Sea and for Lybian and Spanish installations in the Mediterranean Sea. Compared with the previous version this new version has been updated for all countries."@en ;
+  dcat:theme <http://inspire.ec.europa.eu/theme/er>, <http://njh.me/> ;
+  dcat:keyword "Energy resources"@en, "energy"@en, "hydrocarbon"@en, "oil exploration"@en, "oil extraction"@en, "offshore drilling"@en, "oil production (chain)"@en, "petroleum industry"@en ;
+  dc:identifier "EMODnet_HA_OG_Offshore_Installations_20220422"^^xsd:string ;
+  dc:spatial [
+    a dc:Location ;
+    ns0:geometry "{\"type\":\"Polygon\",\"crs\":{\"type\":\"name\",\"properties\":{\"name\":\"urn:ogc:def:crs:OGC:1.3:CRS84\"}},\"coordinates\":[[[-10.58,70.09],[34.59,70.09],[34.59,34.56],[-10.58,34.56],[-10.58,70.09]]]}"^^ns1:json, "POLYGON((-10.58 70.09,34.59 70.09,34.59 34.56,-10.58 34.56,-10.58 70.09))"^^ns2:wktLiteral, "<gml:Polygon><gml:exterior><gml:LinearRing><gml:posList>70.0934.5934.5634.5934.56-10.5870.09-10.5870.0934.59</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>"^^ns2:gmlLiteral;
+    rdfs:label "Europe"@en
+  ] ;
+  dc:issued "2015-08-14"^^xsd:date ;
+  dc:modified "2022-04-22"^^xsd:date ;
+  dc:provenance [
+    a dc:ProvenanceStatement ;
+    rdfs:label "Data were retrived from 9 different sources. Validation and quality assurance remain up to primary data sources, while harmonization is carried out by Cogea. The harmonisation process consisted of identifying a set of attributes common to all the different datasets, thus creating a single data model based on the OSPAR's one. To do so, it was necessary to define a homogenous set of variables for each attribute. Therefore, raw data attributes may use a different terminology, although the information contained remains basically the same. For further information on validation and quality assurance, it is suggested that primary data sources are contacted. Generally speaking data are to be considered very reliable, because they come from national sources officially in charge for their collection. The distance to coast (EEA coastline shapefile) has been calculated using the original data map projections, where available. In the other cases it was used the UTM WGS84 Zone projected coordinate system where data fall in."@en
+  ] ;
+  dc:conformsTo [
+    dc:title "COMMISSION REGULATION (EC) No 1205/2008 of 3 December 2008 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards metadata"@en ;
+    dc:issued "2008-12-04"^^xsd:date
+  ], [
+    dc:title "Corrigendum to INSPIRE Metadata Regulation published in the Official Journal of the European Union, L 328, page 83"@en ;
+    dc:issued "2009-12-15"^^xsd:date
+  ] ;
+  dcat:distribution [
+    a dcat:Distribution ;
+    dc:title "EMODnet_HA_OG_Offshore_Installations_20220422.zip"@en ;
+    dc:description "ZIP (File Geodatabase / Shapefile)"@en ;
+    dcat:accessURL <https://ows.emodnet-humanactivities.eu:/geonetwork/srv/api/records/ddbe3597-4e3f-4e74-8d31-947c4efef2e9/attachments/EMODnet_HA_OG_Offshore_Installations_20220422.zip> ;
+    dc:license <https://emodnet.ec.europa.eu/geonetwork/srv/dut/catalog.search#/metadata/ddbe3597-4e3f-4e74-8d31-947c4efef2e9> ;
+    dc:format [
+      skos:prefLabel "unknown" ;
+      rdfs:label "unknown"
+    ] ;
+    dc:conformsTo [
+      a dc:Standard ;
+      dc:title "WWW:DOWNLOAD-1.0-http--download"
+    ]
+  ] ;
+  dcat:contactPoint [
+    a vcard:Organization ;
+    vcard:fn "Helsinki Commission"@en
+  ] ;
+  dc:relation <https://emodnet.ec.europa.eu/geonetwork/srv/dut/catalog.search#/metadata/ddbe3597-4e3f-4e74-8d31-947c4efef2e9> ;
+  dc:license <https://emodnet.ec.europa.eu/geonetwork/srv/dut/catalog.search#/metadata/ddbe3597-4e3f-4e74-8d31-947c4efef2e9> .
+
+<http://inspire.ec.europa.eu/theme/er>
+  a skos:Concept ;
+  skos:prefLabel "Energy Resources"@en ;
+  skos:inScheme <http://inspire.ec.europa.eu/theme> .

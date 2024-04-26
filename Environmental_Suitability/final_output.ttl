@@ -1,0 +1,79 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns0: <http://www.w3.org/ns/locn#> .
+@prefix ns1: <https://www.iana.org/assignments/media-types/application/vnd.geo+> .
+@prefix ns2: <http://www.opengis.net/ont/geosparql#> .
+@prefix gco: <https://schemas.isotc211.org/19115/-3/gco/1.0/gco/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix ns3: <http://www.w3.org/ns/adms#> .
+@prefix parameter: <http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#> .
+@prefix msp: <http://WFRepo/MSP/> .
+@prefix mspwf: <http://WFRepo/MSP/workflow/> .
+@prefix mspd: <http://WFRepo/MSP/data/> .
+@prefix mspv: <http://WFRepo/MSP/workflow/vocabulary/> .
+
+<http://WFRepo/MSP/data/EnvironmentallySuitableWindFarmsV0.7> a mspd:finalOutput;
+  dc:title "Environmentally suitable areas for wind farms in the in the Dutch Exclusive Economic Zone"@en ;
+  dc:description "Environmentally suitable areas for wind farms in the in the Dutch Exclusive Economic Zone."@en ;
+	dc:spatial[
+    	a dc:Location ;
+    	ns0:geometry "<http://www.opengis.net/def/crs/EPSG/0/28992> POLYGON((-28880.378 366133.093, -28003.802 876738.308, 256006.652 881997.761, 270908.435 374460.560, -28880.378 366133.093))"^^ns2:wktLiteral;
+		rdfs:label "Dutch Exclusive Economic Zone"@en;
+	    dc:isPartOf "Europe"@en];
+  dc:modified ""^^xsd:date ;
+  dcat:contactPoint [
+    a vcard:Individual ;
+    vcard:fn "Aarno Kotilainen"@en ;
+    vcard:organization-name "Geological Survey of Finland GTK"@en ;
+    vcard:hasTelephone <tel:+> ;
+    vcard:hasEmail <mailto:Aarno.kotilainen@gtk.fi> ;
+    vcard:hasURL <https://drive.emodnet-geology.eu/geoserver/gtk/wms> ;
+    vcard:hasAddress [
+      a vcard:Address ;
+      vcard:street-address "P.O.Box 96" ;
+      vcard:locality "Espoo" ;
+      vcard:postal-code "FI-02151" ;
+      vcard:country-name "Finland"
+    ]  ;
+     	a vcard:Organization ;
+    vcard:fn "MSP workflows"@en ;
+    vcard:hasTelephone "" ;
+    vcard:hasEmail "" ;
+    vcard:hasURL <http://WFRepo/MSP/workflow> ;
+    vcard:hasAddress [
+      a vcard:Address ;
+      vcard:street-address "" ;
+      vcard:locality "" ;
+      vcard:postal-code "" ;
+      vcard:country-name ""
+    ]
+    ] ;
+    dcat:distribution  [
+    a dcat:Distribution ;
+    dc:title ""@en ;
+    dc:description ""@en ;
+    dcat:accessURL "" ;
+    dc:license <https://www.gnu.org/licenses/gpl-3.0.txt>,
+	<https://www.gnu.org/licenses/gpl-3.0.html> ;
+    ns3:representationTechnique <http://inspire.ec.europa.eu/metadata-codelist/SpatialRepresentationTypeCode/grid> ;
+    dc:format [
+      skos:prefLabel "GeoTIFF" ;
+      rdfs:label "GeoTIFF"
+    ] ;
+  ];
+   dc:provenance [
+ 	a dc:ProvenanceStatement ;
+    rdfs:label "Combining areas with the appropriate sediment and in shallow areas";
+    mspwf:referenceObject <http://WFRepo/MSP/data/ff3aff8a-cff1-44a3-a2c8-1910bf109f85BathymetryNorthSeaEPSG28992Less60mV1.0>,
+ 	<http://WFRepo/MSP/data/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4SandGravelClippedRasterV0.7>;
+	mspwf:rasterize [
+			parameter:hasParameter[
+			mspwf:parName  "cell value";
+			mspwf:parValue "1" ]];
+			mspwf:opPurpose "Combine decision factors for environmental suitabilty"];
+  dc:relation <https://emodnet.ec.europa.eu/geonetwork/srv/dut/catalog.search#/metadata/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4> ;
+  dc:license <https://emodnet.ec.europa.eu/geonetwork/srv/dut/catalog.search#/metadata/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4> .

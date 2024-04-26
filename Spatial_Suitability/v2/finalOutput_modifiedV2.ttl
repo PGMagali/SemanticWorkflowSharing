@@ -1,0 +1,73 @@
+@prefix owl: <https://www.w3.org/TR/2004/REC-owl-semantics-20040210/#> . 
+@prefix xml:<http://www.w3.org/XML/1998/namespace> . 
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns/> . 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ns0: <http://www.w3.org/ns/locn#> .
+@prefix ns1: <https://www.iana.org/assignments/media-types/application/vnd.geo+> .
+@prefix ns2: <http://www.opengis.net/ont/geosparql#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix gco: <https://schemas.isotc211.org/19115/-3/gco/1.0/gco/> . #I could not make this work in protege, used data time frm xsd for now ->emodnet uses ^^xsd:date
+@prefix gml: <http://www.opengis.net/gml/> .
+@prefix schema: <https://schema.org/> .
+@prefix parameter: <http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#> .
+@prefix msp: <http://WFRepo/MSP/> .
+@prefix mspwf: <http://WFRepo/MSP/workflow/> .
+@prefix mspd: <http://WFRepo/MSP/data/> .
+@prefix mspv: <http://WFRepo/MSP/workflow/vocabulary/> .
+
+<http://WFRepo/MSP/data/SpatialSuitableDutchOffshoreWindFarmV1.1> a mspd:finalOutput;
+    #identification
+    dc:title "Areas suitable for offshore wind farm sitting"@en;     # inspire mandatory
+    dc:description "The suitable areas for offshore windparks are determined by exclusion of existing uses and their safety buffer areas"@en; #resource abstract inspire mandatory        
+    dcat:theme <https://inspire.ec.europa.eu/theme/er>,
+        mspv:SpatialSuitability;
+    dcat:keyword "energy"@en, #Keyword value
+        "wind power"@en;
+    dc:temporal[ #inspire mandatory
+        gml:beginPosition ""; 
+        gml:endPosition "" ] ;
+    # we could also use gmd:spatialExtent instead of bounding box but I thing then we need to pass the BB as a geometry
+	dc:spatial[
+    	a dc:Location ;
+    	ns0:geometry "<http://www.opengis.net/def/crs/EPSG/0/28992> POLYGON((-28880.378 366133.093, -28003.802 876738.308, 256006.652 881997.761, 270908.435 374460.560, -28880.378 366133.093))"^^ns2:wktLiteral;
+		rdfs:label "Dutch Exclusive Economic Zone"@en;
+	    dc:isPartOf "Europe"@en];	
+    dc:identifier "SpatialSuitableDutchOffshoreWindFarm"^^gco:CharacterString;        
+    dc:references "";
+    dc:created ""^^gco:DateTime;
+    dc:issued ""^^gco:DateTime;     # inspire mandatory (publication)
+    dc:modified "2023-02-19T00:00:00Z"^^gco:DateTime ;     # modification date    
+    #distribution
+    dcat:Distribution [
+    dc:format ""@en;
+    dc:publisher "" ] ;
+    dc:license "Re-use of content for commercial or non-commercial purposes is permitted free of charge, provided that the sources (both EMODnet - Human Activities, and primary sources) are acknowledged. EMODnet - Human Activities accepts no responsibility or liability whatsoever for the re-use of content accessible on its website. Please note that OSPAR data sets retrieved from www.ospar.org may be used for any purpose whatsoever unchanged and in whole, provided: a. OSPAR is identified as the (and as the case may be, partial) source; b. no representation is made of OSPAR having in any way endorsed the purpose of using OSPAR’s data set(s) concerned; c. the user 1 complies to the sublicence particulars listed in OSPAR’s metadata catalogue for the data set(s) concerned, in cases where this concerns data set(s) that OSPAR avails of under third party licence; d. data set(s) are not to be redistributed, in part or in whole. Where distribution is deemed necessary third parties should be referred to www.ospar.org."@en;
+    dc:language <http://publications.europa.eu/resource/authority/language/ENG>; 
+    #quality
+    dc:spatial "1000000"^^gco:Integer;
+    #lineage
+    dc:provenance [
+    	a dc:ProvenanceStatement;
+  	 	rdfs:label "This result considers the area not occupied by the oil and gas installations, shipping routes and oil and gas installations as well as the area around them considering a 500m safety distance needed from other activities"@en;    	
+  	 	mspwf:referenceObject mspd:SpatialNotSuitableDutchOffshoreWindFarmV2;
+    	mspwf:difference [
+    		parameter:hasParameter[
+				mspwf:parName ns0:geometry;
+				mspwf:parType ns2:wktLiteral;
+				mspwf:parValue "POLYGON((-41074.2767760576680303 339593.9064832362346351, -41074.2767760576680303 866689.4682601829990745, 276695.1873292432865128 866689.4682601829990745, 276695.1873292432865128 339593.9064832362346351, -41074.2767760576680303 339593.9064832362346351)crs28992)"^^ns2:wktLiteral]];
+       mspwf:opPurpose "Get the area that is not occupied by other activities"@en];
+    #metadata
+    dc:identifier "SpatialNotSuitableDutchOffshoreWindFarm";
+    dc:language <http://publications.europa.eu/resource/authority/language/ENG>; 
+    dc:created "2023-02-19T00:00:00Z"^^gco:DateTime;    
+    dcat:contactPoint <http://WFRepo/MSP/workflow>.
+  
+dcat:theme dc:VocabularyEncodingScheme "controlled vocabulary: GEMET - INSPIRE themes, version 1.0 (reference date: 2008-06-01)".
+dcat:keyword	dc:VocabularyEncodingScheme "controlled vocabulary: GEMET - INSPIRE themes, version 1.0 (reference date: 2008-06-01)".
+
+
+ 

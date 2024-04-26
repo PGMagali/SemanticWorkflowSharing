@@ -1,0 +1,164 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ns0: <http://www.w3.org/TR/void/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns1: <https://www.iana.org/assignments/media-types/application/vnd.geo+> .
+@prefix ns2: <http://www.opengis.net/ont/geosparql#> .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/catalogs/64896f8f-0c54-482e-9200-3ae279f5c79c>
+  a dcat:Catalog ;
+  dc:title "Nationaal georegister"@du ;
+  dc:description "" ;
+  rdfs:label """Nationaal georegister (PDOK)
+      """@du ;
+  foaf:homepage "https://www.nationaalgeoregister.nl/geonetwork/srv/" ;
+  ns0:openSearchDescription "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/portal.opensearch" ;
+  ns0:uriLookupEndpoint "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/rdf.search?any=" ;
+  dc:publisher <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/organizations/PDOK> ;
+  dcat:themes <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistConditionsApplyingToAccessAndUse-ConditionsApplyingToAccessAndUse>, <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.gemet>, <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistDegreeOfConformity-DegreeOfConformity>, <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.organisatie>, <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistSpatialScope-SpatialScope>, <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistLimitationsOnPublicAccess-LimitationsOnPublicAccess>, <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.projections>, <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistQualityOfServiceCriteria-QualityOfServiceCriteria>, <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistPriorityDataset-PriorityDataset>, <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistSpatialDataServiceCategory-SpatialDataServiceCategory>, <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.domainspecifications>, <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeuapplicationschema-applicationschema>, <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumediatypes-media-types>, <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeutheme-theme>, <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistSpatialDataServiceType-SpatialDataServiceType>, <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeudocument-document>, <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.licenses>, <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.protocols>, <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.place.regions>, <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistOnLineDescriptionCode-OnLineDescriptionCode> ;
+  dc:language "dut" ;
+  dcat:dataset <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/3e65fa1b-9bb1-41bd-9760-76962751b839> ;
+  dcat:record <https://www.nationaalgeoregister.nl/geonetwork/records/3e65fa1b-9bb1-41bd-9760-76962751b839> .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/organizations/PDOK>
+  a foaf:Organization ;
+  foaf:name "PDOK" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistConditionsApplyingToAccessAndUse-ConditionsApplyingToAccessAndUse>
+  a skos:ConceptScheme ;
+  dc:title "Conditions Applying To Access and Use" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeumetadatacodelistConditionsApplyingToAccessAndUse-ConditionsApplyingToAccessAndUse" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.gemet>
+  a skos:ConceptScheme ;
+  dc:title "GEMET - Concepts, version 2.4" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.theme.gemet" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistDegreeOfConformity-DegreeOfConformity>
+  a skos:ConceptScheme ;
+  dc:title "Conformiteitsindicatie" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeumetadatacodelistDegreeOfConformity-DegreeOfConformity" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.organisatie>
+  a skos:ConceptScheme ;
+  dc:title "Organisaties OWMS waardelijsten" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.theme.organisatie" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistSpatialScope-SpatialScope>
+  a skos:ConceptScheme ;
+  dc:title "Ruimtelijke dekking" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeumetadatacodelistSpatialScope-SpatialScope" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistLimitationsOnPublicAccess-LimitationsOnPublicAccess>
+  a skos:ConceptScheme ;
+  dc:title "Beperkingen op publieke toegang" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeumetadatacodelistLimitationsOnPublicAccess-LimitationsOnPublicAccess" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.projections>
+  a skos:ConceptScheme ;
+  dc:title "Veel gebruikte projecties" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.theme.projections" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistQualityOfServiceCriteria-QualityOfServiceCriteria>
+  a skos:ConceptScheme ;
+  dc:title "Service kwaliteits kriteria" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeumetadatacodelistQualityOfServiceCriteria-QualityOfServiceCriteria" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistPriorityDataset-PriorityDataset>
+  a skos:ConceptScheme ;
+  dc:title "INSPIRE prioritaire dataset" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeumetadatacodelistPriorityDataset-PriorityDataset" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistSpatialDataServiceCategory-SpatialDataServiceCategory>
+  a skos:ConceptScheme ;
+  dc:title "Classificatie van diensten met betrekking tot ruimtelijke gegevens" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeumetadatacodelistSpatialDataServiceCategory-SpatialDataServiceCategory" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.domainspecifications>
+  a skos:ConceptScheme ;
+  dc:title "Domein specificaties" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.theme.domainspecifications" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeuapplicationschema-applicationschema>
+  a skos:ConceptScheme ;
+  dc:title "INSPIRE applicatie schema register" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeuapplicationschema-applicationschema" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumediatypes-media-types>
+  a skos:ConceptScheme ;
+  dc:title "INSPIRE media-typen register" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeumediatypes-media-types" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeutheme-theme>
+  a skos:ConceptScheme ;
+  dc:title "GEMET - INSPIRE themes, version 1.0" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeutheme-theme" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistSpatialDataServiceType-SpatialDataServiceType>
+  a skos:ConceptScheme ;
+  dc:title "Type dienst met betrekking tot ruimtelijke gegevens" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeumetadatacodelistSpatialDataServiceType-SpatialDataServiceType" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeudocument-document>
+  a skos:ConceptScheme ;
+  dc:title "INSPIRE referentie documenten register" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeudocument-document" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.licenses>
+  a skos:ConceptScheme ;
+  dc:title "licenses" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.theme.licenses" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.protocols>
+  a skos:ConceptScheme ;
+  dc:title "protocols" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.theme.protocols" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.place.regions>
+  a skos:ConceptScheme ;
+  dc:title "Gebiedsnamen in Nederland" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.place.regions" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistOnLineDescriptionCode-OnLineDescriptionCode>
+  a skos:ConceptScheme ;
+  dc:title "Online description code" ;
+  dc:uri "https://www.nationaalgeoregister.nl/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeumetadatacodelistOnLineDescriptionCode-OnLineDescriptionCode" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/records/3e65fa1b-9bb1-41bd-9760-76962751b839>
+  a dcat:CatalogRecord ;
+  foaf:primaryTopic <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/3e65fa1b-9bb1-41bd-9760-76962751b839> ;
+  dc:conformsTo <https://www.iso.org/standard/32557.html> ;
+  dc:issued "" ;
+  dc:modified "" .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/3e65fa1b-9bb1-41bd-9760-76962751b839>
+  dc:identifier "3e65fa1b-9bb1-41bd-9760-76962751b839" ;
+  dc:title "Scheepvaart Verkeersscheidingsstelsel Noordzee (Nederlands Continentaal Plat) WMS" ;
+  dc:abstract "Het Scheepvaart verkeersscheidingsstelsel Noodzee bevat kilometerpunten op de as van de vaargeulen op het Nederlands Continentaal Plat, Ankergebieden, vaargeulen, begrenzing en zonering. Deze dataset is aangemerkt als As-Is bron voor EU-doelen." ;
+  dcat:keyword "Vervoersnetwerken", "Nationaal", "Infrastructuur", "Scheepvaart", "Ankergebied", "Vaargeul", "Begrenzing", "Zonering", <http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory/infoMapAccessService> ;
+  dcat:theme <http://www.eionet.europa.eu/gemet/nl/inspire-theme/tn> ;
+  foaf:thumbnail <https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/3e65fa1b-9bb1-41bd-9760-76962751b839/attachments/scheepvaart.jpg> ;
+  dc:issued "2022-10-24" ;
+  dc:updated "2022-10-25" ;
+  dcat:contactPoint <https://www.rijkswaterstaat.nl>;
+  dc:license <https://creativecommons.org/publicdomain/zero/1.0/deed.nl>, <http://inspire.ec.europa.eu/metadata-codelist/ConditionsApplyingToAccessAndUse/noConditionsApply>, <http://inspire.ec.europa.eu/metadata-codelist/LimitationsOnPublicAccess/noLimitations> ;
+  dcat:distribution <https://www.nationaalgeoregister.nl/geonetwork/records/3e65fa1b-9bb1-41bd-9760-76962751b839#OGC%3AWMS-> ;
+  dc:relation <https://www.nationaalgeoregister.nl/geonetwork/records/5996e444-f7f3-40d2-b485-8b9af6e8aa89>;
+  dc:spatial [
+    a dc:Location ;
+    ns0:geometry "{\"type\":\"Polygon\",\"crs\":{\"type\":\"name\",\"properties\":{\"name\":\"urn:ogc:def:crs:OGC:1.3:CRS28992\"}},\"coordinates\":[[[-248463.9552,4376928.9668],[4133207.6610,4376928.9668],[4133207.6610,-1739123.4627],[-248463.9552,-1739123.4627],[-248463.95528,4376928.9668]]]}"^^ns1:json, "POLYGON((-248463.9552 4376928.9668 ,4133207.6610 4376928.9668, 4133207.6610 -1739123.4627,-36.00 -1739123.4627,-248463.9552 4376928.9668))"^^ns2:wktLiteral, "<gml:Polygon><gml:exterior><gml:LinearRing><gml:posList>85.0043.0025.0043.0025.00-36.0085.00-36.0085.0043.00</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>"^^ns2:gmlLiteral;
+    rdfs:label "Dutch Exclusive Economic Zone"@en
+  ] . 
+
+<https://www.nationaalgeoregister.nl/geonetwork/records/3e65fa1b-9bb1-41bd-9760-76962751b839#OGC%3AWMS->
+  a dcat:Distribution ;
+  dcat:accessURL "https://service.pdok.nl/rws/verkeersscheidingsstelsel/wms/v1_0?request=GetCapabilities&service=WMS" ;
+  dcat:mediaType <http://www.opengis.net/def/serviceType/ogc/wms> .
+
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/persons/beheerpdok%40kadaster.nl>
+  a foaf:Agent ;
+  foaf:mbox <mailto:beheerpdok@kadaster.nl> .
+  
+<https://www.rijkswaterstaat.nl> rdfs:label "rijkswaterstaat".

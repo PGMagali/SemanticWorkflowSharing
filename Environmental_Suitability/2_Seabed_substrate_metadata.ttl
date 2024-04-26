@@ -1,0 +1,146 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns0: <http://www.w3.org/ns/locn#> .
+@prefix ns1: <https://www.iana.org/assignments/media-types/application/vnd.geo+> .
+@prefix ns2: <http://www.opengis.net/ont/geosparql#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+<https://emodnet.ec.europa.eu/geonetwork/srv/resources/catalogs/8a7f033d-352f-4ad8-846e-b33efb0e9121>
+  a dcat:Catalog ;
+  dc:title "EMODnet Product Catalogue "@en ;
+  dc:language <http://publications.europa.eu/resource/authority/language/ENG> ;
+  dc:description """EMODnet Product Catalogue  (EMODnet)
+      """@en ;
+  dc:publisher <https://emodnet.ec.europa.eu/geonetwork/srv/resources/organizations/EMODnet> ;
+  foaf:homepage <http://njh.me/> ;
+  dc:issued "2019-09-01"^^xsd:date ;
+  dc:modified "2019-09-01"^^xsd:date ;
+  dcat:themeTaxonomy <https://emodnet.ec.europa.eu/geonetwork/srv/resources/registries/vocabularies/external.place.regions> .
+
+<http://publications.europa.eu/resource/authority/language/ENG>
+  a skos:Concept, dc:LinguisticSystem ;
+  skos:prefLabel "English"@en, "Englisch"@de, "anglais"@fr, "Engels"@nl ;
+  skos:inScheme <http://publications.europa.eu/resource/authority/language> .
+
+<https://emodnet.ec.europa.eu/geonetwork/srv/resources/organizations/EMODnet>
+  a foaf:Agent ;
+  foaf:name "EMODnet"@en .
+
+<https://emodnet.ec.europa.eu/geonetwork/srv/resources/registries/vocabularies/external.place.regions>
+  a skos:ConceptScheme ;
+  dc:title "Continents, countries, sea regions of the world."@en ;
+  foaf:isPrimaryTopicOf "thesaurus.download?ref=external.place.regions" .
+
+<https://emodnet.ec.europa.eu/geonetwork/srv/resources/records/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4>
+  a dcat:CatalogRecord ;
+  foaf:primaryTopic <https://emodnet.ec.europa.eu/geonetwork/srv/resources/resources/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4> ;
+  dc:language <http://publications.europa.eu/resource/authority/language/ENG> ;
+  dc:modified "2023-09-22"^^xsd:date .
+
+<https://emodnet.ec.europa.eu/geonetwork/srv/resources/resources/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4>
+  dc:title "Seabed Substrates"@en ;
+  dc:description "Seabed substrate map of the European sea areas (e.g. the Baltic Sea, the Barents Sea, the Greater North Sea, the Celtic Sea, the Iberian Coast, the White Sea, and the Mediterranean Sea within EU waters). The map is collated and harmonized from seabed substrate information within the EMODnet-Geology project. The map is collated from data from Partners and generalized data at smaller scales. Where necessary, the existing substrate classifications (of individual maps) have been translated to a scheme that is supported by EUNIS. This EMODnet reclassification scheme consists of altogether five seabed substrate classes. Four substrate classes are defined on the basis of the modified Folk triangle (mud to sandy mud; sand; coarse sediment; and mixed sediment) and one additional substrate class (rock and boulders) was included by the project team. If the original seabed substrate dataset has enabled more detailed substrate classification, classifications with 7 and 16 substrate classes might be available. The seabed substrate maps were produced March 2019. The sedimentation rates April 2021. Note: The data may include some errors e.g. overlays, topological gaps and data discontinuities."@en ;
+  dc:hasPart [
+    dc:identifier "0371d6bb6ba6db81c626e173ab9a059c7627f0c8"^^xsd:string ;
+    foaf:isPrimaryTopicOf <http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=0371d6bb6ba6db81c626e173ab9a059c7627f0c8>
+  ], [
+    dc:identifier "e85db3997022d722010899fc4b18fcd51c9f4b0a"^^xsd:string ;
+    foaf:isPrimaryTopicOf <http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=e85db3997022d722010899fc4b18fcd51c9f4b0a>
+  ], [
+    dc:identifier "fa670fc749453716f718407b0651501ab550c094"^^xsd:string ;
+    foaf:isPrimaryTopicOf <http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=fa670fc749453716f718407b0651501ab550c094>
+  ], [
+    dc:identifier "4e34d6362c61a97e2d38fd12d6664c74038537af"^^xsd:string ;
+    foaf:isPrimaryTopicOf <http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=4e34d6362c61a97e2d38fd12d6664c74038537af>
+  ], [
+    dc:identifier "6365ca736712ab16cd9b834f0fb81066dcb26502"^^xsd:string ;
+    foaf:isPrimaryTopicOf <http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=6365ca736712ab16cd9b834f0fb81066dcb26502>
+  ], [
+    dc:identifier "f0961e474f5fab85fc793836c9613b10c1f0bad0"^^xsd:string ;
+    foaf:isPrimaryTopicOf <http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=f0961e474f5fab85fc793836c9613b10c1f0bad0>
+  ], [
+    dc:identifier "9fa0a6189f53b30990404831a3bced0707e437d5"^^xsd:string ;
+    foaf:isPrimaryTopicOf <http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=9fa0a6189f53b30990404831a3bced0707e437d5>
+  ], [
+    dc:identifier "a5b33a4fd2adca81b125497ae41df5cc8d2c21d2"^^xsd:string ;
+    foaf:isPrimaryTopicOf <http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=a5b33a4fd2adca81b125497ae41df5cc8d2c21d2>
+  ], [
+    dc:identifier "fb41c5e031cb812e7d437a85d6e1d336499d3b37"^^xsd:string ;
+    foaf:isPrimaryTopicOf <http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=fb41c5e031cb812e7d437a85d6e1d336499d3b37>
+  ], [
+    dc:identifier "6ae5868b68a29fda63bcaaf16f8b3fd966d5ad6f"^^xsd:string ;
+    foaf:isPrimaryTopicOf <http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=6ae5868b68a29fda63bcaaf16f8b3fd966d5ad6f>
+  ], [
+    dc:identifier "fc470c4baa521703db2c11b6b923402e1e597664"^^xsd:string ;
+    foaf:isPrimaryTopicOf <http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=fc470c4baa521703db2c11b6b923402e1e597664>
+  ], [
+    dc:identifier "73e9cb8c15f796942045a156f462753097886608"^^xsd:string ;
+    foaf:isPrimaryTopicOf <http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=73e9cb8c15f796942045a156f462753097886608>
+  ], [
+    dc:identifier "c20a921e6265cff84177271a3eb5295dbe8b9e3e"^^xsd:string ;
+    foaf:isPrimaryTopicOf <http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=c20a921e6265cff84177271a3eb5295dbe8b9e3e>
+  ], [
+    dc:identifier "64e189c772e82513ba60c3cfec5ca0aa08ac2132"^^xsd:string ;
+    foaf:isPrimaryTopicOf <http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=64e189c772e82513ba60c3cfec5ca0aa08ac2132>
+  ], [
+    dc:identifier "a5c74e0aadad2b2317d070b66088f5e7d5cc5a8f"^^xsd:string ;
+    foaf:isPrimaryTopicOf <http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=a5c74e0aadad2b2317d070b66088f5e7d5cc5a8f>
+  ], [
+    dc:identifier "50557edb31b74cb73562eb7daf42a765bb740f89"^^xsd:string ;
+    foaf:isPrimaryTopicOf <http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=50557edb31b74cb73562eb7daf42a765bb740f89>
+  ], [
+    dc:identifier "1027122383be7092b75d6c1371a68f5a142ee45d"^^xsd:string ;
+    foaf:isPrimaryTopicOf <http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=1027122383be7092b75d6c1371a68f5a142ee45d>
+  ], [
+    dc:identifier "2d38c58c2e8d7d90f9a73013960936d7497074c5"^^xsd:string ;
+    foaf:isPrimaryTopicOf <http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=2d38c58c2e8d7d90f9a73013960936d7497074c5>
+  ], [
+    dc:identifier "cd0ae8d1ea0ed39546c9ba66b1bf5d3fefda2c7b"^^xsd:string ;
+    foaf:isPrimaryTopicOf <http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=cd0ae8d1ea0ed39546c9ba66b1bf5d3fefda2c7b>
+  ] ;
+  dc:spatial [
+    a dc:Location ;
+    ns0:geometry "{\"type\":\"Polygon\",\"crs\":{\"type\":\"name\",\"properties\":{\"name\":\"urn:ogc:def:crs:OGC:1.3:CRS84\"}},\"coordinates\":[[[-102.59103566636395,88.54050014950855],[122.47400839464719,88.54050014950855],[122.47400839464719,0.5117900827286044],[-102.59103566636395,0.5117900827286044],[-102.59103566636395,88.54050014950855]]]}"^^ns1:json, "POLYGON((-102.59103566636395 88.54050014950855,122.47400839464719 88.54050014950855,122.47400839464719 0.5117900827286044,-102.59103566636395 0.5117900827286044,-102.59103566636395 88.54050014950855))"^^ns2:wktLiteral, "<gml:Polygon><gml:exterior><gml:LinearRing><gml:posList>88.54050014950855122.474008394647190.5117900827286044122.474008394647190.5117900827286044-102.5910356663639588.54050014950855-102.5910356663639588.54050014950855122.47400839464719</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>"^^ns2:gmlLiteral;
+    rdfs:label "Europe" ] ;
+  dc:modified ""^^xsd:date ;
+  dcat:contactPoint [
+    a vcard:Individual ;
+    vcard:fn "Aarno Kotilainen"@en ;
+    vcard:organization-name "Geological Survey of Finland GTK"@en ;
+    vcard:hasTelephone <tel:+> ;
+    vcard:hasEmail <mailto:Aarno.kotilainen@gtk.fi> ;
+    vcard:hasURL <https://drive.emodnet-geology.eu/geoserver/gtk/wms> ;
+    vcard:hasAddress [
+      a vcard:Address ;
+      vcard:street-address "P.O.Box 96" ;
+      vcard:locality "Espoo" ;
+      vcard:postal-code "FI-02151" ;
+      vcard:country-name "Finland"
+    ]
+  ] ;
+  dc:relation <https://emodnet.ec.europa.eu/geonetwork/srv/dut/catalog.search#/metadata/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4> ;
+  dc:license <https://emodnet.ec.europa.eu/geonetwork/srv/dut/catalog.search#/metadata/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4> .
+
+<http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=0371d6bb6ba6db81c626e173ab9a059c7627f0c8> a dcat:CatalogRecord .
+<http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=e85db3997022d722010899fc4b18fcd51c9f4b0a> a dcat:CatalogRecord .
+<http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=fa670fc749453716f718407b0651501ab550c094> a dcat:CatalogRecord .
+<http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=4e34d6362c61a97e2d38fd12d6664c74038537af> a dcat:CatalogRecord .
+<http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=6365ca736712ab16cd9b834f0fb81066dcb26502> a dcat:CatalogRecord .
+<http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=f0961e474f5fab85fc793836c9613b10c1f0bad0> a dcat:CatalogRecord .
+<http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=9fa0a6189f53b30990404831a3bced0707e437d5> a dcat:CatalogRecord .
+<http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=a5b33a4fd2adca81b125497ae41df5cc8d2c21d2> a dcat:CatalogRecord .
+<http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=fb41c5e031cb812e7d437a85d6e1d336499d3b37> a dcat:CatalogRecord .
+<http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=6ae5868b68a29fda63bcaaf16f8b3fd966d5ad6f> a dcat:CatalogRecord .
+<http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=fc470c4baa521703db2c11b6b923402e1e597664> a dcat:CatalogRecord .
+<http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=73e9cb8c15f796942045a156f462753097886608> a dcat:CatalogRecord .
+<http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=c20a921e6265cff84177271a3eb5295dbe8b9e3e> a dcat:CatalogRecord .
+<http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=64e189c772e82513ba60c3cfec5ca0aa08ac2132> a dcat:CatalogRecord .
+<http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=a5c74e0aadad2b2317d070b66088f5e7d5cc5a8f> a dcat:CatalogRecord .
+<http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=50557edb31b74cb73562eb7daf42a765bb740f89> a dcat:CatalogRecord .
+<http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=1027122383be7092b75d6c1371a68f5a142ee45d> a dcat:CatalogRecord .
+<http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=2d38c58c2e8d7d90f9a73013960936d7497074c5> a dcat:CatalogRecord .
+<http://drive.emodnet-geology.eu/geonetwork/srv/eng//xml.metadata.get?uuid=cd0ae8d1ea0ed39546c9ba66b1bf5d3fefda2c7b> a dcat:CatalogRecord .

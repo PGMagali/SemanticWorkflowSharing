@@ -1,0 +1,68 @@
+@prefix owl: <https://www.w3.org/TR/2004/REC-owl-semantics-20040210/#> . 
+@prefix xml:<http://www.w3.org/XML/1998/namespace> . 
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns/> . 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix gco: <https://schemas.isotc211.org/19115/-3/gco/1.0/gco/> .
+@prefix gml: <http://www.opengis.net/gml/> .
+@prefix schema: <https://schema.org/> .
+@prefix ns0: <http://www.w3.org/ns/locn#> .
+@prefix ns1: <https://www.iana.org/assignments/media-types/application/vnd.geo+> .
+@prefix ns2: <http://www.opengis.net/ont/geosparql#> .
+@prefix parameter: <http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#> .
+@prefix msp: <http://WFRepo/MSP/> .
+@prefix mspwf: <http://WFRepo/MSP/workflow/> .
+@prefix mspd: <http://WFRepo/MSP/data/> .
+@prefix mspv: <http://WFRepo/MSP/workflow/vocabulary/> .
+@prefix gsp: <http://www.opengis.net/ont/geosparql#> .
+
+<http://WFRepo/MSP/data/DutchWindFarms_20221219_EPSG28992V1.0> a mspd:intermediateOutput; 	
+	#identification
+	dc:title "Dutch offshore Wind Farms"@en; 	# inspire mandatory
+	dc:description "The database on offshore wind farms in the EU was created in 2014 by CETMAR for the European Marine Observation and Data Network (EMODnet). It is the result of the aggregation and harmonization of datasets provided by several sources. It is updated every year and is available for viewing and download on EMODnet Human Activities web portal (https://emodnet.ec.europa.eu/en/human-activities). The database contains points and/or (where available) polygons representing offshore wind farms in the following countries: Belgium, Denmark, Estonia, Finland, France, Germany, Greece, Ireland, Italy, Latvia, Lithuania, Netherlands, Norway, Poland, Portugal, Spain, Sweden and United Kingdom. Each point has the following attributes (where available): Name, Nº of turbines, Status (Approved, Planned, Dismantled, Construction, Production, Test site), Country, Year, Power (MW), Distance to coast (metres) and Area (square kilometres). The distance to coast (EEA coastline shapefile) has been calculated using the UTM WGS84 Zone projected coordinate system where data fall in. This layer was reprojected from the original emodnet layer EMODnet Human Activities, Wind Farms and then clipped to the Dutch EEZ"@en; #resource abstract inspire mandatory		
+	dcat:theme <https://inspire.ec.europa.eu/theme/er>,
+		mspv:HardUses,
+		mspv:RenewableEnergyProduction;
+	dcat:keyword "energy"@en, 
+		"wind power"@en,
+		mspv:WindFarms;
+	dc:temporal[ #inspire mandatory
+		gml:beginPosition ""; 
+		gml:endPosition "" ] ;
+	dc:spatial[
+    	a dc:Location ;
+    	ns0:geometry "<http://www.opengis.net/def/crs/EPSG/0/28992> POLYGON((-28880.378 366133.093, -28003.802 876738.308, 256006.652 881997.761, 270908.435 374460.560, -28880.378 366133.093))"^^ns2:wktLiteral;
+		rdfs:label "Dutch Exclusive Economic Zone"@en;
+	    dc:isPartOf "Europe"@en];
+	dc:identifier "DutchWindFarms_20221219_EPSG28992"^^gco:CharacterString;		
+	dc:references "";
+	dc:issued ""^^gco:DateTime; 	# inspire mandatory (publication)
+	dc:modified "2023-02-19T00:00:00Z"^^gco:DateTime ; 	# modification date	
+	#distribution
+	dcat:Distribution [
+	dc:format ""@en;
+	dc:publisher "";
+	dc:license "Re-use of content for commercial or non-commercial purposes is permitted free of charge, provided that the sources (both EMODnet - Human Activities, and primary sources) are acknowledged. EMODnet - Human Activities accepts no responsibility or liability whatsoever for the re-use of content accessible on its website."@en;	
+	dc:language <http://publications.europa.eu/resource/authority/language/ENG>]; 
+	#quality
+	dc:spatial "1000000"^^gco:Integer;
+	#lineage
+	dc:provenance [
+	   	a dc:ProvenanceStatement;
+   		rdfs:label "The features in the reference object that match the geometry defined in the function parameter were keept under a new dataset layer. The resolution and attributes were kept the same as the object reference.";
+		mspwf:referenceObject mspd:WindFarms_20221219_EPSG28992;
+		mspwf:clipVector [
+			parameter:hasParameter[
+			mspwf:parName ns0:geometry;
+			mspwf:parType gsp:wktLiteral;
+			mspwf:parValue "POLYGON((-41074.2767760576680303 339593.9064832362346351, -41074.2767760576680303 866689.4682601829990745, 276695.1873292432865128 866689.4682601829990745, 276695.1873292432865128 339593.9064832362346351, -41074.2767760576680303 339593.9064832362346351)crs28992)"^^gsp:wktLiteral]];
+   		mspwf:opPurpose "Clip the dataset to the area of interest"];
+	#metadata
+	dc:identifier "mspd:DutchWindFarms_20221219_EPSG28992"^^gco:CharacterString;
+	dc:language <http://publications.europa.eu/resource/authority/language/ENG>; 
+	dcat:contactPoint <https://cetmar.org>,
+		<http://WFRepo/MSP/workflow>;
+	dc:created "2023-02-19T00:00:00Z"^^gco:DateTime.

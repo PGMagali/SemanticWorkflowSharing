@@ -1,0 +1,116 @@
+@prefix owl: <https://www.w3.org/TR/2004/REC-owl-semantics-20040210/#> . #protege already has this one by default
+@prefix xml:<http://www.w3.org/XML/1998/namespace> . #protege already has this one by default
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns/> . #protege already has this one by default
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . #protege already has this one by default
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . #protege already has this one by default, used it also for date time
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix gml: <http://www.opengis.net/gml/> .
+@prefix ccd: <http://geographicknowledge.de/vocab/CoreConceptData.rdf#> . 
+@prefix schema: <https://schema.org/> .
+@prefix irao: <http://ontology.ethereal.cz/irao> .
+@prefix msp: <http://WFRepo/MSP/> .
+@prefix mspwf: <http://WFRepo/MSP/workflow/> .
+@prefix mspd: <http://WFRepo/MSP/data/> .
+@prefix mspv: <http://WFRepo/MSP/vocabulary/> .
+
+<http://WFRepo/MSP/workflow/MPAConnectivityBSV0.7> a mspwf:workflow;
+	dc:title "MPAs Connectivity evaluation in the Baltic Sea"@en;
+	dc:description "Workflow to evaluate MPAs Connectivity in the Baltic Sea"@en;
+	dc:identifier "mspwf@MPAConnectivityBSV0.2"^^xsd:string;
+	msp:hasVocabTerm mspv:MarineProtectedAreas, mspv:MarineConservation, mspv:MarineProtection, msp:MPA;
+
+#it should be possible to infer this by the input/output data
+	mspwf:purpose mspv:connectivity, mspv:networkAnalysis, mspv:marineSpatialPlanning, mspv:MarineConservation;
+	dc:source ""^^xsd:string;
+	dc:references ""^^xsd:string;#add relevant articles
+	dc:bibliographicCitation ""^^xsd:string;
+	#use the DOI here when relevant, it could also be a list of relevant literature
+	dc:created "2024-02-14T11:04:00Z"^^xsd:date;
+	dc:creator [
+		vcard:fn "Magali D. do Patrocínio Gonçalves"^^xsd:string;
+			a vcard:Individual;
+			vcard:email "goncalves.m@buas.nl";
+		vcard:Organization <https://www.buas.nl>;
+			a vcard:Organization;
+			vcard:fn "Breda University of Applied Sciences",
+				"BUas"];
+			
+	dc:contributor "Magali D. do Patrocínio Gonçalves"^^xsd:string;
+	dc:rights <https://www.gnu.org/licenses/gpl-3.0.txt>,
+	<https://www.gnu.org/licenses/gpl-3.0.html>;
+	dc:publisher [
+	foaf:name "mspwf";
+	foaf:homepage <http://WFRrepo.info> ];
+	#(This page does not exist)
+	dc:accessRights <https://www.gnu.org/licenses/gpl-3.0.txt>,
+	<https://www.gnu.org/licenses/gpl-3.0.html>;
+	dc:rightsHolder ""^^xsd:string;
+	dc:version "0.7"^^xsd:string;
+
+dcat:theme <http://inspire.ec.europa.eu/theme/ps>,
+	mspv:environmentalProtection;
+	irao:DevelopmentStatus " In Progress";
+	dc:provenance [
+		dc:contributor "Magali D. do Patrocínio Gonçalves"^^xsd:string;
+		dc:ProvenanceStatement	""^^xsd:string ;
+		dc:replaces ""^^xsd:string;
+		dc:isReplacedBy ""^^xsd:string;
+		dc:modified ""^^xsd:date;
+		dc:isVersionOf ""^^xsd:string];
+		dc:format <https://www.w3.org/TR/turtle/> ;
+	dc:language <http://publications.europa.eu/resource/authority/language/ENG>;
+	
+	mspwf:hasInput <http://localhost:8080/geonetwork/srv/resources/datasets/d27df8c0-de86-4d13-a06d-35a8f50b16fa>,
+	<http://WFRepo/MSP/data/10kmPointGridBaltic> ;
+			
+	mspwf:hasOutput <http://WFRepo/MSP/data/distanceToMPAsBalticV0.7>.
+
+mspd:output rdfs:subClassOf msp:data.
+mspd:intermediateOutput rdfs:subClassOf msp:data.
+mspd:finalOutput rdfs:subClassOf msp:data.
+mspd:input rdfs:subClassOf msp:data .
+mspwf:workflow rdfs:subClassOf msp:workflow. 
+
+<http://localhost:8080/geonetwork/srv/resources/datasets/d27df8c0-de86-4d13-a06d-35a8f50b16fa> a mspd:input,
+	ccd:ObjectVector, ccd:region;
+	msp:hasVocabTerm  mspv:MarineProtectedAreas, mspv:MPA.
+
+<http://WFRepo/MSP/data/10kmPointGridBaltic> a mspd:input,
+	ccd:ObjectVector, ccd:point.
+
+
+<http://WFRepo/MSP/data/distanceToMPAsBalticV0.7> a mspd:FinalOutput,
+	ccd:track, ccd:line;
+	msp:hasVocabTerm   mspv:MarineProtectedAreas, mspv:MPA, mspv:connectivity.
+
+# more details regarding metadata
+dcat:theme dc:VocabularyEncodingScheme "controlled vocabulary: GEMET - INSPIRE themes, version 1.0 (reference date: 2008-06-01)".
+dcat:keyword	dc:VocabularyEncodingScheme "controlled vocabulary: GEMET - INSPIRE themes, version 1.0 (reference date: 2008-06-01)".
+	
+<http://publications.europa.eu/resource/authority/language/ENG>
+  a skos:Concept, dc:LinguisticSystem ;
+  skos:prefLabel "English"@en, "Englisch"@de, "anglais"@fr, "Engels"@nl ;
+  skos:inScheme <http://publications.europa.eu/resource/authority/language> .
+  
+<http://inspire.ec.europa.eu/theme/ps> rdfs:label "Protected Sites"@eng.
+
+mspv:MarineProtectedAreas skos:prefLabel "Marine Protected Areas", "MPA";
+	dc:partOf mspv:MarineProtection, mspv:MarineConservation.
+
+mspv:MarineProtection skos:prefLabel "Marine Protection";
+	dc:isPartOf mspv:environmentalConservation, mspv:environmentalProtection.
+	
+mspv:MarineConservation	skos:prefLabel "Marine Conservation";
+	dc:isPartOf mspv:environmentalConservation, mspv:environmentalProtection.
+
+mspv:environmentalConservation skos:prefLabel "Environmental Conservation", "Conservation".
+
+mspv:environmentalProtection skos:prefLabel "Environmental Protection", "Protection".
+
+mspv:connectivity skos:prefLabel "Connectivity". 
+
+mspv:networkAnalysis skos:prefLabel "Network Analysis".

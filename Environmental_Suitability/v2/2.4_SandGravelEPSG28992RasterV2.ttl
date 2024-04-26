@@ -1,0 +1,80 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns0: <http://www.w3.org/ns/locn#> .
+@prefix ns1: <https://www.iana.org/assignments/media-types/application/vnd.geo+> .
+@prefix ns2: <http://www.opengis.net/ont/geosparql#> .
+@prefix gco: <https://schemas.isotc211.org/19115/-3/gco/1.0/gco/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix locn:<http://www.w3.org/ns/locn#> .
+@prefix ns3: <http://www.w3.org/ns/adms#> .
+@prefix parameter: <http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#> .
+@prefix gsp: <http://www.opengis.net/ont/geosparql#> .
+@prefix msp: <http://WFRepo/MSP/> .
+@prefix mspwf: <http://WFRepo/MSP/workflow/> .
+@prefix mspd: <http://WFRepo/MSP/data/> .
+@prefix mspv: <http://WFRepo/MSP/workflow/vocabulary/> .
+
+<http://WFRepo/MSP/data/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4SandGravelClippedRasterV0.71> a mspd:intermediateOutput;
+  dc:title "Areas with sand, coarse substracte, and mixed sediments in the Dutch Exclusive Economic Zone"@en ;
+  dc:description "Areas with  sand, coarse substracte, and mixed sediments in the Dutch Exclusive Economic Zone based on the seabed substrate map of the European sea areas (e.g. the Baltic Sea, the Barents Sea, the Greater North Sea, the Celtic Sea, the Iberian Coast, the White Sea, and the Mediterranean Sea within EU waters). The map is collated and harmonized from seabed substrate information within the EMODnet-Geology project. The map is collated from data from Partners and generalized data at smaller scales. Where necessary, the existing substrate classifications (of individual maps) have been translated to a scheme that is supported by EUNIS. This EMODnet reclassification scheme consists of altogether five seabed substrate classes. Four substrate classes are defined on the basis of the modified Folk triangle (mud to sandy mud; sand; coarse sediment; and mixed sediment) and one additional substrate class (rock and boulders) was included by the project team. If the original seabed substrate dataset has enabled more detailed substrate classification, classifications with 7 and 16 substrate classes might be available. The seabed substrate maps were produced March 2019. The sedimentation rates April 2021. Note: The data may include some errors e.g. overlays, topological gaps and data discontinuities. Clipped and reprojected to the Dutch EEZ."@en ;
+	dc:spatial[
+    	a dc:Location ;
+    	ns0:geometry "<http://www.opengis.net/def/crs/EPSG/0/28992> POLYGON((-28880.378 366133.093, -28003.802 876738.308, 256006.652 881997.761, 270908.435 374460.560, -28880.378 366133.093))"^^ns2:wktLiteral;
+		rdfs:label "Dutch Exclusive Economic Zone"@en;
+	    dc:isPartOf "Europe"@en];	
+  dc:modified ""^^xsd:date ;
+  dcat:contactPoint [
+    a vcard:Individual ;
+    vcard:fn "Aarno Kotilainen"@en ;
+    vcard:organization-name "Geological Survey of Finland GTK"@en ;
+    vcard:hasTelephone <tel:+> ;
+    vcard:hasEmail <mailto:Aarno.kotilainen@gtk.fi> ;
+    vcard:hasURL <https://drive.emodnet-geology.eu/geoserver/gtk/wms> ;
+    vcard:hasAddress [
+      a vcard:Address ;
+      vcard:street-address "P.O.Box 96" ;
+      vcard:locality "Espoo" ;
+      vcard:postal-code "FI-02151" ;
+      vcard:country-name "Finland"
+    ]  ;
+     	a vcard:Organization ;
+    vcard:fn "MSP workflows"@en ;
+    vcard:hasTelephone "" ;
+    vcard:hasEmail "" ;
+    vcard:hasURL <http://WFRepo/MSP/workflow> ;
+    vcard:hasAddress [
+      a vcard:Address ;
+      vcard:street-address "" ;
+      vcard:locality "" ;
+      vcard:postal-code "" ;
+      vcard:country-name ""
+    ]
+    ] ;
+    dcat:distribution  [
+    a dcat:Distribution ;
+    dc:title ""@en ;
+    dc:description ""@en ;
+    dcat:accessURL "" ;
+    dc:license <https://www.gnu.org/licenses/gpl-3.0.txt>,
+	<https://www.gnu.org/licenses/gpl-3.0.html> ;
+    ns3:representationTechnique <http://inspire.ec.europa.eu/metadata-codelist/SpatialRepresentationTypeCode/grid> ;
+    dc:format [
+      skos:prefLabel "GeoTIFF" ;
+      rdfs:label "GeoTIFF"
+    ] ;
+  ];
+   dc:provenance [
+    a dc:ProvenanceStatement;
+   	rdfs:label "Areas with sand, coarse substracte, and mixed sediments were rasterized and attribute the value 1";
+ 	mspwf:referenceObject <http://WFRepo/MSP/data/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4SeabedSubstrateClippedEPSG28992V0.71>;
+	mspwf:rasterize [
+			parameter:hasParameter[
+			mspwf:parName  "substrate";
+			mspwf:parValue "sand", "coarse substracte", "mixed sediments" ]];
+			mspwf:opPurpose "Dataset rasterized to evaluate with bathymetry dataset"];
+  dc:relation <https://emodnet.ec.europa.eu/geonetwork/srv/dut/catalog.search#/metadata/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4> ;
+  dc:license <https://emodnet.ec.europa.eu/geonetwork/srv/dut/catalog.search#/metadata/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4> .

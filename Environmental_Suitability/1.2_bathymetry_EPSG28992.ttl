@@ -1,0 +1,98 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns0: <http://www.w3.org/ns/locn#> .
+@prefix ns1: <https://www.iana.org/assignments/media-types/application/vnd.geo+> .
+@prefix ns2: <http://www.opengis.net/ont/geosparql#> .
+@prefix schema: <http://schema.org/> .
+@prefix gco: <https://schemas.isotc211.org/19115/-3/gco/1.0/gco/> .#I could not make this work in protege, used data time frm xsd for now ->emodnet uses ^^xsd:date
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns3: <http://www.w3.org/ns/adms#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix parameter: <http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#> .
+@prefix msp: <http://WFRepo/MSP/> .
+@prefix mspwf: <http://WFRepo/MSP/workflow/> .
+@prefix mspd: <http://WFRepo/MSP/data/> .
+@prefix mspv: <http://WFRepo/MSP/workflow/vocabulary/> .
+
+<http://WFRepo/MSP/data/ff3aff8a-cff1-44a3-a2c8-1910bf109f85BathymetryNorthSeaEPSG28992V1.0> a mspd:finalOutput;
+  mspwf:isOutputOF <http://WFRepo/MSP/workflow/BathymetryDataPrepNSV1.0>;
+  dc:title "EMODnet Digital Bathymetry (DTM 2022) for the Dutch EEZ in EPSG28992 projection"@en ;
+  dc:description "The \"EMODnet Digital Bathymetry (DTM)- 2022\" is a multilayer bathymetric product for Europe’s sea basins covering: • the Greater North Sea, including the Kattegat and stretches of water such as Fair Isle, Cromarty, Forth, Forties,Dover, Wight, and Portland • the English Channel and Celtic Seas • Western Mediterranean, the Ionian Sea and the Central Mediterranean Sea • Iberian Coast and Bay of Biscay (Atlantic Ocean) • Adriatic Sea (Mediterranean) • Aegean - Levantine Sea (Mediterranean). • Madeira and Azores (Macaronesia) • Baltic Sea • Black Sea • Norwegian and Icelandic Seas • Canary Islands (Macaronesia) • Arctic region and Barentz Sea The DTM is based upon 21937 bathymetric survey data sets and Composite DTMs that have been gathered from 64 data providers from 28 countries riparian to European seas and beyond. Also Satellite Derived Bathymetry data products have been included fro Landsat 8 and Sentinel satellite images. Areas not covered by observations are completed by integrating GEBCO 2022 and IBCAO V4. The source reference layer in the portal viewing service gives metadata of the data sets used with their data providers; the metadata also acknowledges the data originators. The incorporated survey data sets itself can be discovered and requested for access through the Common Data Index (CDI) data discovery and access service that in December 2022 contained > 41.000survey data sets from European data providers for global waters. The Composite DTMs can be discovered through the Sextant Catalogue service. Both discovery services make use of SeaDataNet standards and services and have been integrated in the EMODnet portal (https://emodnet.ec.europa.eu/en/bathymetry#bathymetry-services ). In addition, the EMODnet Map Viewer (https://emodnet.ec.europa.eu/geoviewer/ ) gives users wide functionality for viewing and downloading the EMODnet digital bathymetry such as: • water depth (refering to the Lowest Astronomical Tide Datum - LAT) in gridded form on a DTM grid of 1/16 * 1/16 arc minute of longitude and latitude (ca 115 * 115 meters). • option to view depth parameters of individual DTM cells and references to source data • option to download DTM in 58 tiles in different formats: ESRI ASCII, XYZ, EMODnet CSV, NetCDF (CF), GeoTiff and SD • option to visualize the DTM in 3D in the browser without plug-in • layer with a number of high resolution DTMs for coastal regions • layer with wrecks from the UKHO Wrecks database. The EMODnet DTM is also available by means of OGC web services (WMS, WFS, WCS, WMTS), which are specified at the EMODnet Bathymetry portal. The original datasets themselves are not distributed but described in the metadata services, giving clear information about the background survey data used for the DTM, their access restrictions, originators and distributors and facilitating requests by users to originator. The dataset was clipped to the Dutch EEZ and reprojected to the EPSG28992 projection."@en ;
+  dcat:theme <http://inspire.ec.europa.eu/theme/el> ;
+  dcat:keyword "/Physical Environment/Bathymetry/Digital Terrain Model"@en, "Elevation"@en, "Gravity, magnetics and bathymetry"@en, "Terrestrial"@en, "Administration and dimensions"@en, "Bathymetry and Elevation"@en, "Metadata parameters"@en, "Reference numbers"@en, "EMODnet"@en, "seafloor depth"@en, "ocean depth"@en, "Digital Terrain Model"@en, "DTM"@en, "grid"@en, "bathymetric data"@en, "European seas"@en, "Azores"@en, "Madeira"@en, "Canary Islands"@en, "North-East Atlantic"@en, "Bay of Biscay"@en, "Celtic Seas"@en, "English Channel"@en, "North Sea"@en, "Norvegian Sea"@en, "Iceland Sea"@en, "Baltic Sea"@en, "Mediterranean Sea"@en, "Adriatic Sea"@en, "Aegean Sea"@en, "Black Sea"@en, "Arctic"@en, "Barentz Sea"@en, "Seabed"@en, "Bathymetry"@en, "National"@en, "/Processed data/Model outputs"@en, ""@en, "/La Rochelle/LAR02"@en, "/Peniche"@en, "/Bournemouth"@en, "/Cherbourg"@en, "/La Rochelle"@en, "/Toulon/TOU01"@en, "/Boulogne-sur-Mer"@en, "/Cherbourg/CHE01"@en, "/International and global data portals"@en, "/Toulon/TOU02"@en, "/Toulon"@en, "/Toulon/TOU08"@en, "/Plymouth"@en, "/Brest"@en, "/Toulon/TOU05"@en, "/Toulon/TOU06"@en, "/Toulon/TOU03"@en, "/Toulon/TOU07"@en, "/Toulon/TOU04"@en ;
+  dc:identifier "ff3aff8a-cff1-44a3-a2c8-1910bf109f85BathymetryNorthSeaEPSG28992"^^xsd:string ;
+	dc:spatial[
+    	a dc:Location ;
+    	ns0:geometry "<http://www.opengis.net/def/crs/EPSG/0/28992> POLYGON((-28880.378 366133.093, -28003.802 876738.308, 256006.652 881997.761, 270908.435 374460.560, -28880.378 366133.093))"^^ns2:wktLiteral;
+		rdfs:label "Dutch Exclusive Economic Zone"@en;
+	    dc:isPartOf "Europe"@en];
+  dc:temporal [
+    a dc:PeriodOfTime ;
+    schema:startDate "1816-01-01T00:00:00"^^xsd:date ;
+    schema:endDate "2022-07-11T00:00:00"^^xsd:date
+  ] ;
+  dc:issued "2022-01-31"^^xsd:date ;
+  dc:provenance [
+ 	a dc:ProvenanceStatement ;
+    rdfs:label "The object reference was reprojected to the projection that suits the area of interest. The resolution and attributes were kept the same as the object reference";
+    mspwf:referenceObject mspd:ff3aff8a-cff1-44a3-a2c8-1910bf109f85BathymetryNorthSea;
+	mspwf:reproject [
+			parameter:hasParameter[
+			mspwf:parName "projection"^^gco:CharacterString;
+			mspwf:parType gco:UomURI;
+			mspwf:parValue <https://epsg.io/28992>]];
+			mspwf:opPurpose "Reproject the dataset to the area of interest"];
+   dcat:distribution  [
+    a dcat:Distribution ;
+    dc:title ""@en ;
+    dc:description ""@en ;
+    dcat:accessURL "" ;
+    dc:license <https://www.gnu.org/licenses/gpl-3.0.txt>,
+	<https://www.gnu.org/licenses/gpl-3.0.html> ;
+    ns3:representationTechnique <http://inspire.ec.europa.eu/metadata-codelist/SpatialRepresentationTypeCode/grid> ;
+    dc:format [
+      skos:prefLabel "GeoTIFF" ;
+      rdfs:label "GeoTIFF"
+    ] ;
+    dc:conformsTo [
+      a dc:Standard ;
+      dc:title "WWW:DOWNLOAD-1.0-link--download"
+    ]
+  ];
+  dcat:contactPoint [
+    a vcard:Organization ;
+    vcard:fn "Shom (Service Hydrographique et Océanographique de la Marine)"@en ;
+    vcard:hasTelephone <tel:+330256312312> ;
+    vcard:hasEmail <mailto:webmaster@shom.fr> ;
+    vcard:hasURL <http://www.shom.fr/> ;
+    vcard:hasAddress [
+      a vcard:Address ;
+      vcard:street-address "13, rue du Chatellier CS92803" ;
+      vcard:locality "BREST CEDEX 2" ;
+      vcard:postal-code "29228" ;
+      vcard:country-name "France"
+    ];
+ 	a vcard:Organization ;
+    vcard:fn "MSP workflows"@en ;
+    vcard:hasTelephone "" ;
+    vcard:hasEmail "" ;
+    vcard:hasURL <http://WFRepo/MSP/workflow> ;
+    vcard:hasAddress [
+      a vcard:Address ;
+      vcard:street-address "" ;
+      vcard:locality "" ;
+      vcard:postal-code "" ;
+      vcard:country-name ""
+    ]
+    
+  ] ;
+  dc:relation <https://emodnet.ec.europa.eu/geonetwork/srv/dut/catalog.search#/metadata/ff3aff8a-cff1-44a3-a2c8-1910bf109f85> ;
+  dc:license <https://emodnet.ec.europa.eu/geonetwork/srv/dut/catalog.search#/metadata/ff3aff8a-cff1-44a3-a2c8-1910bf109f85> .
+
+<http://inspire.ec.europa.eu/theme/el>
+  a skos:Concept ;
+  skos:prefLabel "Elevation"@en ;
+  skos:inScheme <http://inspire.ec.europa.eu/theme> .

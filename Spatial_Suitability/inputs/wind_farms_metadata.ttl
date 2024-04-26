@@ -1,0 +1,93 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns0: <http://www.w3.org/ns/locn#> .
+@prefix ns1: <https://www.iana.org/assignments/media-types/application/vnd.geo+> .
+@prefix ns2: <http://www.opengis.net/ont/geosparql#> .
+@prefix schema: <http://schema.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://emodnet.ec.europa.eu/geonetwork/srv/resources/catalogs/8a7f033d-352f-4ad8-846e-b33efb0e9121>
+  a dcat:Catalog ;
+  dc:title "EMODnet Product Catalogue "@en ;
+  dc:language <http://publications.europa.eu/resource/authority/language/ENG> ;
+  dc:description """EMODnet Product Catalogue  (EMODnet)
+      """@en ;
+  dc:publisher <https://emodnet.ec.europa.eu/geonetwork/srv/resources/organizations/EMODnet> ;
+  foaf:homepage <http://njh.me/> ;
+  dc:issued "2019-09-01"^^xsd:date ;
+  dc:modified "2019-09-01"^^xsd:date ;
+  dcat:themeTaxonomy <https://emodnet.ec.europa.eu/geonetwork/srv/resources/registries/vocabularies/external.place.regions> .
+
+<http://publications.europa.eu/resource/authority/language/ENG>
+  a skos:Concept, dc:LinguisticSystem ;
+  skos:prefLabel "English"@en, "Englisch"@de, "anglais"@fr, "Engels"@nl ;
+  skos:inScheme <http://publications.europa.eu/resource/authority/language> .
+
+<https://emodnet.ec.europa.eu/geonetwork/srv/resources/organizations/EMODnet>
+  a foaf:Agent ;
+  foaf:name "EMODnet"@en .
+
+<http://njh.me/>
+  a foaf:Document, skos:Concept ;
+  foaf:name "EMODnet Product Catalogue "@en ;
+  skos:prefLabel "energy"@en, "wind power"@en ;
+  skos:inScheme <http://njh.me/> .
+
+<https://emodnet.ec.europa.eu/geonetwork/srv/resources/registries/vocabularies/external.place.regions>
+  a skos:ConceptScheme ;
+  dc:title "Continents, countries, sea regions of the world."@en ;
+  foaf:isPrimaryTopicOf "thesaurus.download?ref=external.place.regions" .
+
+<https://emodnet.ec.europa.eu/geonetwork/srv/resources/records/8201070b-4b0b-4d54-8910-abcea5dce57f>
+  a dcat:CatalogRecord ;
+  foaf:primaryTopic <https://emodnet.ec.europa.eu/geonetwork/srv/resources/resources/8201070b-4b0b-4d54-8910-abcea5dce57f> ;
+  dc:language <http://publications.europa.eu/resource/authority/language/ENG> ;
+  dc:modified "2023-12-23"^^xsd:date .
+
+<https://emodnet.ec.europa.eu/geonetwork/srv/resources/resources/8201070b-4b0b-4d54-8910-abcea5dce57f> a dcat:Dataset;
+	dc:title "EMODnet, Human Activities, Energy, Wind Farms"@en;
+	dc:description "The dataset on offshore wind farms in the European seas was created in 2014 by CETMAR for the European Marine Observation and Data Network (EMODnet). It is the result of the aggregation and harmonization of datasets provided by several sources. It is updated every year and it is available for viewing and download on EMODnet web portal (Human Activities, https://emodnet.ec.europa.eu/en/human-activities). The dataset contains points and/or (where available) polygons representing offshore wind farms in the following countries: Belgium, Denmark, Estonia, Finland, France, Germany, Greece, Ireland, Italy, Latvia, Lithuania, Netherlands, Norway, Poland, Portugal, Spain, Sweden and United Kingdom. Each point and polygon has the following attributes (where available): Name, Nº of turbines, Status (Approved, Planned, Dismantled, Construction, Production, Test site), Country, Year, Power (MW), Distance to coast (metres) and Area (square kilometres). The distance to coast (EEA coastline shapefile) has been calculated using the UTM WGS84 Zone projected coordinate system where data fall in."@en;
+	dcat:theme <http://inspire.ec.europa.eu/theme/er>;
+	dcat:keyword "Energy resources", "energy", "wind power";
+	dc:identifier "EMODnet_HA_Energy_WindFarms_20231124"^^xsd:string;
+	dcat:contactPoint <https://cetmar.org>;
+	dc:spatial [
+    	a dc:Location ;
+    	ns0:geometry "{\"type\":\"Polygon\",\"crs\":{\"type\":\"name\",\"properties\":{\"name\":\"urn:ogc:def:crs:OGC:1.3:CRS84\"}},\"coordinates\":[[[-18.08,71.84],[28.69,71.84],[28.69,27.65],[-18.08,27.65],[-18.08,71.84]]]}"^^ns1:json, "POLYGON((-18.08 71.84,28.69 71.84,28.69 27.65,-18.08 27.65,-18.08 71.84))"^^ns2:wktLiteral, "<gml:Polygon><gml:exterior><gml:LinearRing><gml:posList>71.8428.6927.6528.6927.65-18.0871.84-18.0871.8428.69</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon>"^^ns2:gmlLiteral;
+    	rdfs:label "Europe"@en];
+  dc:temporal [
+    a dc:PeriodOfTime ;
+    schema:startDate "2014-06-01"^^xsd:date ;
+    schema:endDate ""^^xsd:date
+  ] ;
+  dc:issued "2014-06-01"^^xsd:date ;
+  dc:modified "2023-11-24"^^xsd:date ;
+  dc:provenance [
+    a dc:ProvenanceStatement ;
+    rdfs:label "Data were retrieved from different sources. Validation and quality assurance remain up to primary data sources, while harmonization is carried out by CETMAR. For further information on validation and quality assurance, it is suggested that primary data sources are contacted. Generally speaking data are to be considered very reliable, because they come from national sources officially in charge for their collection as well as from well-known private sources. Information obtained from local sources was cross-checked with information from The Wind Power database (www.thewindpower.net)."@en
+  ] ;
+  dcat:distribution [
+    a dcat:Distribution ;
+    dc:title "EMODnet_HA_Energy_WindFarms_20231124.zip"@en ;
+    dc:description "ZIP (File Geodatabase / Shapefile)"@en ;
+    dcat:accessURL <https://ows.emodnet-humanactivities.eu:/geonetwork/srv/api/records/8201070b-4b0b-4d54-8910-abcea5dce57f/attachments/EMODnet_HA_Energy_WindFarms_20231124.zip> ;
+    dc:license <https://emodnet.ec.europa.eu/geonetwork/srv/dut/catalog.search#/metadata/8201070b-4b0b-4d54-8910-abcea5dce57f> ;
+    dc:format [
+      skos:prefLabel "unknown" ;
+      rdfs:label "unknown"
+    ] ;
+    dc:conformsTo [
+      a dc:Standard ;
+      dc:title "WWW:DOWNLOAD-1.0-http--download"
+    ]
+  ] ;
+  dc:relation <https://emodnet.ec.europa.eu/geonetwork/srv/dut/catalog.search#/metadata/8201070b-4b0b-4d54-8910-abcea5dce57f> ;
+  dc:license <https://emodnet.ec.europa.eu/geonetwork/srv/dut/catalog.search#/metadata/8201070b-4b0b-4d54-8910-abcea5dce57f> .
+
+<http://inspire.ec.europa.eu/theme/er>
+  a skos:Concept ;
+  skos:prefLabel "Energy Resources"@en ;
+  skos:inScheme <http://inspire.ec.europa.eu/theme> .

@@ -1,0 +1,86 @@
+@prefix owl: <https://www.w3.org/TR/2004/REC-owl-semantics-20040210/#> . 
+@prefix xml:<http://www.w3.org/XML/1998/namespace> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns/> . 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gmd: <http://www.isotc211.org/2005/gmd#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix gco: <https://schemas.isotc211.org/19115/-3/gco/1.0/gco/> . 
+@prefix gml: <http://www.opengis.net/gml/> .
+@prefix ccd: <http://geographicknowledge.de/vocab/CoreConceptData.rdf#> . 
+@prefix ns0: <http://www.w3.org/ns/locn#> .
+@prefix ns1: <https://www.iana.org/assignments/media-types/application/vnd.geo+> .
+@prefix ns2: <http://www.opengis.net/ont/geosparql#> .
+@prefix schema: <https://schema.org/> .
+@prefix parameter: <http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#> .
+@prefix msp: <http://WFRepo/MSP/> .
+@prefix mspwf: <http://WFRepo/MSP/workflow/> .
+@prefix mspd: <http://WFRepo/MSP/data/> .
+@prefix mspv: <http://WFRepo/MSP/vocabulary/> .
+@prefix gsp: <http://www.opengis.net/ont/geosparql#> .
+
+<http://WFRepo/MSP/data/DutchOG_Offshore_Installations_20220422_EPSG28992V1.0> a gmd:DS_DataSet,
+		mspd:intermediateOutput;
+	#identification
+	dc:title "Dutch Oil and gas offshore installations reprojected to EPSG 28992"@en; 	# inspire mandatory
+	dc:description "The database on offshore wind farms in the EU was created in 2014 by CETMAR for the European Marine Observation and Data Network (EMODnet). It is the result of the aggregation and harmonization of datasets provided by several sources. It is updated every year and is available for viewing and download on EMODnet Human Activities web portal (https://emodnet.ec.europa.eu/en/human-activities). The database contains points and/or (where available) polygons representing offshore wind farms in the following countries: Belgium, Denmark, Estonia, Finland, France, Germany, Greece, Ireland, Italy, Latvia, Lithuania, Netherlands, Norway, Poland, Portugal, Spain, Sweden and United Kingdom. Each point has the following attributes (where available): Name, Nº of turbines, Status (Approved, Planned, Dismantled, Construction, Production, Test site), Country, Year, Power (MW), Distance to coast (metres) and Area (square kilometres). The distance to coast (EEA coastline shapefile) has been calculated using the UTM WGS84 Zone projected coordinate system where data fall in. This layer was reprojected from the original emodnet layer EMODnet Human Activities, Wind Farms. This dataset was reprojected to EPSG 28992 and clipped to the Dutch EEZ. "@en; #resource abstract inspire mandatory		
+	dcat:theme <https://inspire.ec.europa.eu/theme/er>,
+		mspv:HardUses,
+		mspv:Fossil_Fuel_EE;
+	dcat:keyword "energy"@en, #Keyword value
+		"hydrocarbon"@en,
+		"oil exploration"@en,
+		"oil extraction"@en,
+		"offshore"@en,
+		"oil production (chain)"@en,
+		"petroleum industry"@en,
+		"energy resources"@en,
+		"drilling"@en,
+		mspv:OilGasPlatforms;
+	dc:temporal[ #inspire mandatory
+		gml:beginPosition ""; 
+		gml:endPosition "" ] ;
+	# we could also use gmd:spatialExtent instead of bounding box but I thing then we need to pass the BB as a geometry
+	dc:spatial[
+    	a dc:Location ;
+    	ns0:geometry "<http://www.opengis.net/def/crs/EPSG/0/28992> POLYGON((-28880.378 366133.093, -28003.802 876738.308, 256006.652 881997.761, 270908.435 374460.560, -28880.378 366133.093))"^^ns2:wktLiteral;
+		rdfs:label "Dutch Exclusive Economic Zone"@en;
+	    dc:isPartOf "Europe"@en];	
+	dc:identifier "DutchOG_Offshore_Installations_20220422_EPSG28992"^^gco:CharacterString;		
+	dc:references "";
+	gmd:CI_Date [
+	dc:created ""^^gco:DateTime;
+	dc:issued ""^^gco:DateTime; 	# inspire mandatory (publication)
+	dc:modified "2023-02-19T00:00:00Z"^^gco:DateTime ] ; 	# modification date	
+	#distribution
+	dcat:Distribution [
+		dc:format ""@en;
+		dc:publisher "";
+		gmd:transferOptions ""^^gco:CharacterString ] ;
+	dc:license "Re-use of content for commercial or non-commercial purposes is permitted free of charge, provided that the sources (both EMODnet - Human Activities, and primary sources) are acknowledged. EMODnet - Human Activities accepts no responsibility or liability whatsoever for the re-use of content accessible on its website. Please note that OSPAR data sets retrieved from www.ospar.org may be used for any purpose whatsoever unchanged and in whole, provided: a. OSPAR is identified as the (and as the case may be, partial) source; b. no representation is made of OSPAR having in any way endorsed the purpose of using OSPAR’s data set(s) concerned; c. the user 1 complies to the sublicence particulars listed in OSPAR’s metadata catalogue for the data set(s) concerned, in cases where this concerns data set(s) that OSPAR avails of under third party licence; d. data set(s) are not to be redistributed, in part or in whole. Where distribution is deemed necessary third parties should be referred to www.ospar.org."@en;
+	dc:language <http://publications.europa.eu/resource/authority/language/ENG>; 
+	#quality
+	dc:spatial "100000"^^gco:Integer;
+	#lineage
+	dc:provenance [
+   	a dc:ProvenanceStatement;
+   	rdfs:label "The object reference was clipped to the area of interest. The resolution and attributes were kept the same as the object reference";
+   	mspwf:referenceObject mspd:OG_Offshore_Installations_20220422_EPSG28992;
+		mspwf:clipVector [
+			parameter:hasParameter[
+			mspwf:parName ns0:geometry;
+			mspwf:parType gsp:wktLiteral;
+			mspwf:parValue "POLYGON((-41074.2767760576680303 339593.9064832362346351, -41074.2767760576680303 866689.4682601829990745, 276695.1873292432865128 866689.4682601829990745, 276695.1873292432865128 339593.9064832362346351, -41074.2767760576680303 339593.9064832362346351)crs28992)"^^gsp:wktLiteral]];
+   		mspwf:opPurpose "Clip the dataset to the area of interest"];
+	#metadata
+	gmd:MD_Metadata [
+	dc:identifier "DutchOG_Offshore_Installations_20220422_EPSG28992";
+	dc:language <http://publications.europa.eu/resource/authority/language/ENG>;
+	dc:created "2023-02-19T00:00:00Z"^^gco:DateTime;	
+	gmd:metadataStandardName "ISO 19115/2003/Cor.1:2006/INSPIRE-TG2.0";
+	gmd:metadataStandardVersion "GDI-Vlaanderen Best Practices - versie 2.0"];	
+	dcat:contactPoint <https://www.cogea.it>,
+		<http://WFRepo/MSP/workflow>.

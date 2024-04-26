@@ -1,0 +1,185 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ns0: <http://www.w3.org/TR/void/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns1: <http://www.opengis.net/rdf#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+
+<http://localhost:8080/geonetwork/srv/resources/catalogs/649cc4b7-cce8-4abe-817d-69cbe4678bdd> a dcat:Catalog ;
+  dc:title "HELCOM Metadata catalogue"@en ;
+  dc:description "" ;
+  rdfs:label """HELCOM Metadata catalogue (Helcom)
+      """@en ;
+  foaf:homepage "https://metadata.helcom.fi:/geonetwork/srv/" ;
+  ns0:openSearchDescription "https://metadata.helcom.fi:/geonetwork/srv/eng/portal.opensearch" ;
+  ns0:uriLookupEndpoint "https://metadata.helcom.fi:/geonetwork/srv/eng/rdf.search?any=" ;
+  dc:publisher <http://localhost:8080/geonetwork/srv/resources/organizations/Helcom> ;
+  dcat:themes <http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistConditionsApplyingToAccessAndUse-ConditionsApplyingToAccessAndUse>, <http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistSpatialScope-SpatialScope>, <http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistProtocolValue-ProtocolValue>, <http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistLimitationsOnPublicAccess-LimitationsOnPublicAccess>, <http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistQualityOfServiceCriteria-QualityOfServiceCriteria>, <http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistPriorityDataset-PriorityDataset>, <http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeuapplicationschema-applicationschema>, <http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeumediatypes-media-types>, <http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeutheme-theme>, <http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.gemet-en>, <http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.place.regions>, <http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistOnLineDescriptionCode-OnLineDescriptionCode> ;
+  dc:language "eng" ;
+  dcat:dataset <http://localhost:8080/geonetwork/srv/resources/d27df8c0-de86-4d13-a06d-35a8f50b16fa> ;
+  dcat:record <https://metadata.helcom.fi:/geonetwork/records/d27df8c0-de86-4d13-a06d-35a8f50b16fa> .
+
+<http://localhost:8080/geonetwork/srv/resources/organizations/Helcom>
+  a foaf:Organization ;
+  foaf:name "Helcom" .
+
+<http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistConditionsApplyingToAccessAndUse-ConditionsApplyingToAccessAndUse>
+  a skos:ConceptScheme ;
+  dc:title "Conditions Applying To Access and Use" ;
+  dc:uri "https://metadata.helcom.fi:/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeumetadatacodelistConditionsApplyingToAccessAndUse-ConditionsApplyingToAccessAndUse" .
+
+<http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistSpatialScope-SpatialScope>
+  a skos:ConceptScheme ;
+  dc:title "Spatial scope" ;
+  dc:uri "https://metadata.helcom.fi:/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeumetadatacodelistSpatialScope-SpatialScope" .
+
+<http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistProtocolValue-ProtocolValue>
+  a skos:ConceptScheme ;
+  dc:title "INSPIRE Protocol values" ;
+  dc:uri "https://metadata.helcom.fi:/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeumetadatacodelistProtocolValue-ProtocolValue" .
+
+<http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistLimitationsOnPublicAccess-LimitationsOnPublicAccess>
+  a skos:ConceptScheme ;
+  dc:title "Limitations on public access" ;
+  dc:uri "https://metadata.helcom.fi:/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeumetadatacodelistLimitationsOnPublicAccess-LimitationsOnPublicAccess" .
+
+<http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistQualityOfServiceCriteria-QualityOfServiceCriteria>
+  a skos:ConceptScheme ;
+  dc:title "Quality of Service criteria code" ;
+  dc:uri "https://metadata.helcom.fi:/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeumetadatacodelistQualityOfServiceCriteria-QualityOfServiceCriteria" .
+
+<http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistPriorityDataset-PriorityDataset>
+  a skos:ConceptScheme ;
+  dc:title "INSPIRE priority data set" ;
+  dc:uri "https://metadata.helcom.fi:/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeumetadatacodelistPriorityDataset-PriorityDataset" .
+
+<http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeuapplicationschema-applicationschema>
+  a skos:ConceptScheme ;
+  dc:title "INSPIRE application schema register" ;
+  dc:uri "https://metadata.helcom.fi:/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeuapplicationschema-applicationschema" .
+
+<http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeumediatypes-media-types>
+  a skos:ConceptScheme ;
+  dc:title "INSPIRE media-types register" ;
+  dc:uri "https://metadata.helcom.fi:/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeumediatypes-media-types" .
+
+<http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeutheme-theme>
+  a skos:ConceptScheme ;
+  dc:title "GEMET - INSPIRE themes, version 1.0" ;
+  dc:uri "https://metadata.helcom.fi:/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeutheme-theme" .
+
+<http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.gemet-en>
+  a skos:ConceptScheme ;
+  dc:title "GEMET" ;
+  dc:uri "https://metadata.helcom.fi:/geonetwork/srv/eng/thesaurus.download?ref=external.theme.gemet-en" .
+
+<http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.place.regions>
+  a skos:ConceptScheme ;
+  dc:title "Continents, countries, sea regions of the world." ;
+  dc:uri "https://metadata.helcom.fi:/geonetwork/srv/eng/thesaurus.download?ref=external.place.regions" .
+
+<http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/external.theme.httpinspireeceuropaeumetadatacodelistOnLineDescriptionCode-OnLineDescriptionCode>
+  a skos:ConceptScheme ;
+  dc:title "Online description code" ;
+  dc:uri "https://metadata.helcom.fi:/geonetwork/srv/eng/thesaurus.download?ref=external.theme.httpinspireeceuropaeumetadatacodelistOnLineDescriptionCode-OnLineDescriptionCode" .
+
+<https://metadata.helcom.fi:/geonetwork/records/d27df8c0-de86-4d13-a06d-35a8f50b16fa>
+  a dcat:CatalogRecord ;
+  foaf:primaryTopic <http://localhost:8080/geonetwork/srv/resources/d27df8c0-de86-4d13-a06d-35a8f50b16fa> ;
+  dc:conformsTo <https://www.iso.org/standard/32557.html> ;
+  dc:issued "2023-05-03" ;
+  dc:modified "2023-05-03" .
+
+<http://localhost:8080/geonetwork/srv/resources/datasets/d27df8c0-de86-4d13-a06d-35a8f50b16fa> a dcat:Dataset ;
+  dc:identifier "d27df8c0-de86-4d13-a06d-35a8f50b16fa" ;
+  dc:title "HELCOM MPAs" ;
+  dc:abstract """This dataset contains borders of the HELCOM MPAs (former Baltic Sea Protected Areas (BSPAs). The dataset has been compiled from data submitted by HELCOM Contracting Parties. It includes the borders of designated HELCOM MPAs stored in the http://mpas.helcom.fi. The designation is based on the HELCOM Recommendation 15/5 (1994). The dataset displays all designated or managed MPAs as officially reported to HELCOM by the respective Contracting Party. The latest related HELCOM publication based on MPA related data is http://www.helcom.fi/Lists/Publications/BSEP148.pdf
+  The dataset contains the following information: 
+MPA_ID: Unique ID of the MPA as used in HELCOM Marine Protected Areas database
+Name: Name of the MPA
+Country: Country where MPA is located
+Site_link: Direct link to site's fact sheet in the http://mpas.helcom.fi where additional information is available
+MPA_status: Management status of the MPA
+Date_est: Establishment date of the MPA
+Year_est: Establishment year of the MPA""" ;
+  dcat:keyword "MADS",
+  "Marine Protected Areas",
+  "MPA",
+  "Marine Protection",
+  "Marine Conservation";
+  dcat:theme <http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/GEMET%2520-%2520INSPIRE%2520themes%252C%2520version%25201.0/concepts/>, <http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/GEMET/concepts/>, <https://inspire.ec.europa.eu/metadata-codelist/TopicCategory/environment> ;
+  dc:spatial [
+    a <http://www.opengis.net/rdf#Polygon> ;
+    ns1:asWKT """
+            <http://www.opengis.net/def/crs/OGC/1.3/CRS84>
+            Polygon((9.171427 52.525805, 9.171427 66.331433, 33.044318 66.331433, 33.044318 52.525805, 9.171427 52.525805))
+          """^^ns1:WKTLiteral;
+    rdfs:label "Baltic Sea"@en;
+    dc:isPartOf "Europe"@en
+  ] ;
+  dc:temporal """2010-02-01
+          /
+          2022-12-31""" ;
+  dc:updated "2022-12-05" ;
+  dcat:contactPoint [
+   a vcard:Organization ;
+   vcard:fn "HELCOM Secretariat"@en ;
+   vcard:hasEmail <mailto:data@helcom.fi> ;
+   a vcard:Organization ;
+    vcard:fn "MSP workflows"@en ;
+    vcard:hasTelephone "" ;
+    vcard:hasEmail "" ;
+    vcard:hasURL <http://WFRepo/MSP/workflow> 
+    ];
+    dc:publisher <http://localhost:8080/geonetwork/srv/resources/organizations/HELCOM%20Secretariat> ;
+  dc:language "eng" ;
+  dc:license "Use constraints: Data can be used freely given that the source (HELCOM) is cited.", <http://inspire.ec.europa.eu/metadata-codelist/LimitationsOnPublicAccess/noLimitations> ;
+  dcat:distribution <https://metadata.helcom.fi:/geonetwork/records/d27df8c0-de86-4d13-a06d-35a8f50b16fa#WWW%3ALINK-1.0-http--link-Download%20dataset>, <https://metadata.helcom.fi:/geonetwork/records/d27df8c0-de86-4d13-a06d-35a8f50b16fa#WWW%3ALINK-1.0-http--link-Open%20in%20Map%20Viewer> ;
+  dcat:dataQuality """This dataset is compiled from data submitted by HELCOM Contracting States. It includes the borders of designated HELCOM MPAs. 
+
+The dataset was updated in May 2023 to update Status of German MPAs: "Fehmarnbelt", "Kadetrinne" and "Pommersche Bucht-Rönnebank" 
+
+The dataset was updated December 2022 to update new MPAs reported by Germany (MPA_IDs 593-600).
+
+The dataset was updated June 2022 to update 3 new MPAs by Sweden and modifying extent of MPA_ID=118 (Fladen).
+
+The dataset was updated October 2019 to accommodate updated status of management plans.  
+
+The dataset was updated April 2019 by HELCOM Secretariat to add a new MPA (MPA ID:522 - Södra Sandbäck) as designated by Finland, and to include new areas to 2 existing MPAs (MPA ID: 143 - Saaristomeri /Archipelago Sea and MPA ID: 157 - Tulliniemen linnustonsuojelualue/ Tulliniemi bird protection area) as designated by Finland. In addition the whole Finnish MPA network was re-projected to remove the shift in the features that occurred before. Also the spatial delineation of following Finnish MPAs were revised to remove islands and water areas that are not included in the MPA IDs: 161, 159 and 144. 
+
+The dataset was updated in January 2019 by HELCOM Secretariat in order to update MPA establishment dates for Germany based on corrected information. 
+
+The dataset was updated in February 2018 by HELCOM Secretariat in order to update attribute table content (management plan status) according to updates carried out by Contracting Parties to HELCOM MPA database. 
+
+In March 2017 two new MPAs were included (MPA_ID:533 - Sambija plynaukšte Biosphere Polygon and MPA_ID:532 - Klaipeda-Ventpilis plynaukšte Biosphere Polygon) as designated by Lithuania. 
+
+Following changes has been made until april 2016: Removed attributes "Location_S", "AreaTot_Ha", "AreaMar_Ha", "N2K_Site", changed following attributes names: "BSPA_ID" to "MPA_ID",  "BSAPLink" to "Site_link" and added attribute "Date_est" according to new http://mpas.helcom.fi.
+
+Following changes has been made until August 2015: Modified HELCOM MPA: Küstenlandschaft Bottsand - Marzkamp u. vorgelagerte Flachgründe, Östlichen Kieler Bucht 
+
+Following changes has been made until February 2015: Added HELCOM MPAs: Luodematalat (February 2015) Länsileton alue (February 2015) Sandkallanin eteläpuolinen merialue (February 2015) Hangon itäinen selkä (February 2015) Merikallat (February 2015) Björkör (February 2015) Boxö (February 2015) Långör - Östra Sundskär (February 2015) Signilskär - Märket (February 2015) Lågskär (February 2015) Bogskär (February 2015) 
+
+Following changes has been made until July 2013: Removed BSPAs: 1 Finnish BSPA, BSPA_ID: 146 (Åland Area: Signilskär/Märket) (June 2012) 2 Polish BSPAs, BSPA_ID: 87, 182 1 Russian BSPAs, BSPA_ID: 162 (Ingermanlandskiy) 4 Swedish BSPAs, BSPA_ID: 114-121 5 Latvian BSPAs, BSPA_ID: 96-100 (June 2012, April 2013) 1 Danish BSPA, BSPA_ID: 290 (July 2013) Added BSPAs: 4 Swedish (ID 297-300 (May 2011) 7 Latvian BSPAs, ID: 303-309 (April 2013) 2 Lithuanian BSPAs, ID: 310-311 (july 2013) Modied BSPA areas: 2 Danish BSPA:s, ID 244, 249 (July 2013) 2 Russian BSPA:s, ID 163-164, (July 2013). 
+
+During 2009-2010 the data was updated within a project to analyse the ecological coherence of the HELCOM protected areas network. Results are published in "HELCOM 2010. Towards an ecologically coherent network of well-managed Marine Protected Areas – Implementation report on the status and ecological coherence of the HELCOM BSPA network. Balt. Sea Environ. Proc. No. 124B." Available online at http://http://www.helcom.fi/Lists/Publications/BSEP124B.pdf""" .
+
+<http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/GEMET%2520-%2520INSPIRE%2520themes%252C%2520version%25201.0/concepts/>
+  a skos:Concept ;
+  skos:inScheme <http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/GEMET%2520-%2520INSPIRE%2520themes%252C%2520version%25201.0> ;
+  skos:prefLabel "" .
+
+<https://metadata.helcom.fi:/geonetwork/records/d27df8c0-de86-4d13-a06d-35a8f50b16fa#WWW%3ALINK-1.0-http--link-Download%20dataset>
+  a dcat:Distribution ;
+  dcat:accessURL "https://maps.helcom.fi/website/MADS/download/?id=d27df8c0-de86-4d13-a06d-35a8f50b16fa" ;
+  dc:title "Download dataset" ;
+  dc:format "WWW:LINK-1.0-http--link" .
+
+<https://metadata.helcom.fi:/geonetwork/records/d27df8c0-de86-4d13-a06d-35a8f50b16fa#WWW%3ALINK-1.0-http--link-Open%20in%20Map%20Viewer>
+  a dcat:Distribution ;
+  dcat:accessURL "https://maps.helcom.fi/website/mapservice/?datasetID=d27df8c0-de86-4d13-a06d-35a8f50b16fa" ;
+  dc:title "Open in Map Viewer" ;
+  dc:format "WWW:LINK-1.0-http--link" .
+

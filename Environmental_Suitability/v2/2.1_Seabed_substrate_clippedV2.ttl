@@ -1,0 +1,76 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns0: <http://www.w3.org/ns/locn#> .
+@prefix ns1: <https://www.iana.org/assignments/media-types/application/vnd.geo+> .
+@prefix ns2: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns3: <http://www.w3.org/ns/adms#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix mspwf: <http://WFRepo/MSP/workflow/> .
+@prefix mspd: <http://WFRepo/MSP/data/> .
+@prefix parameter: <http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#> .
+
+<http://WFRepo/MSP/data/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4SeabedSubstrateClippedV0.71> a  mspd:intermediateOutput ;
+  dc:title "Seabed Substrates in the Dutch EEZ"@en ;
+  dc:description "Seabed substrate map of Dutch Continental Shelf (part of the Greater North Sea. The map is a subset of a dataset collated and harmonized from seabed substrate information within the EMODnet-Geology project. The map is collated from data from Partners and generalized data at smaller scales. Where necessary, the existing substrate classifications (of individual maps) have been translated to a scheme that is supported by EUNIS. This EMODnet reclassification scheme consists of altogether five seabed substrate classes. Four substrate classes are defined on the basis of the modified Folk triangle (mud to sandy mud; sand; coarse sediment; and mixed sediment) and one additional substrate class (rock and boulders) was included by the project team. If the original seabed substrate dataset has enabled more detailed substrate classification, classifications with 7 and 16 substrate classes might be available. The seabed substrate maps were produced March 2019. The sedimentation rates April 2021. Note: The data may include some errors e.g. overlays, topological gaps and data discontinuities. Clipped to the Dutch EEZ"@en ;
+  dc:spatial [
+    a dc:Location ;
+  	ns0:geometry "<http://www.opengis.net/def/crs/EPSG/0/4326> POLYGON ((2.539333055369897 55.764999998372382, 7.085581975505404 55.764999998372382, 7.085581975505404 51.2675641894028262,  2.539333055369897 51.267564189402826, 2.539333055369897 55.764999998372382))"^^ns2:wktLiteral;
+    rdfs:label "Dutch Exclusive Economic Zone"@en;
+    dc:isPartOf "Europe"@en] ;
+  dc:modified ""^^xsd:date ;
+  dcat:contactPoint [
+    a vcard:Individual ;
+    vcard:fn "Aarno Kotilainen"@en ;
+    vcard:organization-name "Geological Survey of Finland GTK"@en ;
+    vcard:hasTelephone <tel:+> ;
+    vcard:hasEmail <mailto:Aarno.kotilainen@gtk.fi> ;
+    vcard:hasURL <https://drive.emodnet-geology.eu/geoserver/gtk/wms> ;
+    vcard:hasAddress [
+      a vcard:Address ;
+      vcard:street-address "P.O.Box 96" ;
+      vcard:locality "Espoo" ;
+      vcard:postal-code "FI-02151" ;
+      vcard:country-name "Finland"
+    ];
+     a vcard:Organization ;
+    vcard:fn "MSP workflows"@en ;
+    vcard:hasTelephone "" ;
+    vcard:hasEmail "" ;
+    vcard:hasURL <http://WFRepo/MSP/workflow> ;
+    vcard:hasAddress [
+      a vcard:Address ;
+      vcard:street-address "" ;
+      vcard:locality "" ;
+      vcard:postal-code "" ;
+      vcard:country-name ""
+    ]
+  ] ;
+      dcat:distribution  [
+    a dcat:Distribution ;
+    dc:title ""@en ;
+    dc:description ""@en ;
+    dcat:accessURL "" ;
+    dc:license <https://www.gnu.org/licenses/gpl-3.0.txt>,
+	<https://www.gnu.org/licenses/gpl-3.0.html> ;
+    ns3:representationTechnique <http://inspire.ec.europa.eu/metadata-codelist/SpatialRepresentationTypeCode/grid> ;
+    dc:format [
+      skos:prefLabel "GeoTIFF" ;
+      rdfs:label "GeoTIFF"
+    ] ;
+  ];
+   dc:provenance [
+   	a dc:ProvenanceStatement;
+   	rdfs:label "The features in the reference object that match the geometry defined in the function parameter were keept under a new dataset layer. The resolution and attributes were kept the same as the object reference.";
+ 	mspwf:referenceObject <https://emodnet.ec.europa.eu/geonetwork/srv/resources/resources/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4>;
+	mspwf:clip [
+			parameter:hasParameter[
+	mspwf:parName ns0:geometry;
+	mspwf:parType ns2:wktLiteral;
+	mspwf:parValue "POLYGON((2.539333055369897 51.267564189402826, 7.085581975505404 51.267564189402826, 7.085581975505404 55.764999998372382, 2.539333055369897 55.764999998372382, 2.539333055369897 51.267564189402826)crs4326)"^^ns2:wktLiteral]];
+	mspwf:opPurpose "Clip the dataset to the area of interest"];
+  dc:relation <https://emodnet.ec.europa.eu/geonetwork/srv/dut/catalog.search#/metadata/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4> ;
+  dc:license <https://emodnet.ec.europa.eu/geonetwork/srv/dut/catalog.search#/metadata/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4> .

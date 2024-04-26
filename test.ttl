@@ -1,0 +1,757 @@
+@prefix : <http://data.example.com/my-sparnatural-config#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix msp: <http://WFRepo/MSP/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix core: <http://data.sparna.fr/ontologies/sparnatural-config-core#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geof: <http://www.opengis.net/def/function/geosparql/> .
+@prefix mspd: <http://WFRepo/MSP/data/> .
+@prefix mspv: <http://WFRepo/MSP/vocabulary/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix this: <http://data.example.com/my-sparnatural-config/> .
+@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix mspwf: <http://WFRepo/MSP/workflow/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix skosxl: <http://www.w3.org/2008/05/skos-xl#> .
+@prefix xls2rdf: <https://xls2rdf.sparna.fr/vocabulary#> .
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#> .
+@prefix parameter: <http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#> .
+@prefix datasources: <http://data.sparna.fr/ontologies/sparnatural-config-datasources#> .
+@base <http://data.example.com/my-sparnatural-config#> .
+
+<http://data.example.com/my-sparnatural-config> rdf:type owl:Ontology ;
+                                                 owl:imports <http://data.sparna.fr/ontologies/sparnatural-config-core> ,
+                                                             <http://data.sparna.fr/ontologies/sparnatural-config-datasources> ;
+                                                 dc:format <https://xls2rdf.sparna.fr/rest/convert?url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1DqvousSlnkSg4TB_5czBcuFeirp6FkofSlirtueXob0%2Fexport%3Fformat%3Dxlsx&noPostProcessings=true> ;
+                                                 dc:source <https://docs.google.com/spreadsheets/d/1DqvousSlnkSg4TB_5czBcuFeirp6FkofSlirtueXob0> .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/format
+dc:format rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/source
+dc:source rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://WFRepo/MSP/hasVocabTerm
+msp:hasVocabTerm rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf core:NonSelectableProperty ;
+                 rdfs:domain msp:data ,
+                             msp:workflow ;
+                 rdfs:range msp:vocabulary ;
+                 core:sparqlString "<http://WFRepo/MSP/hasVocabTerm>" ;
+                 rdfs:label "Has vocabulary term" .
+
+
+###  http://WFRepo/MSP/workflow/hasInput
+mspwf:hasInput rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf core:ListProperty ;
+               owl:inverseOf mspwf:isInputOf ;
+               rdfs:domain msp:workflow ;
+               rdfs:range msp:data ;
+               rdfs:label "Has Input data"@en .
+
+
+###  http://WFRepo/MSP/workflow/hasOutput
+mspwf:hasOutput rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf core:ListProperty ;
+                owl:inverseOf mspwf:isOutputOf ;
+                rdfs:domain msp:workflow ;
+                rdfs:range msp:data ;
+                rdfs:label "Has Output data"@en .
+
+
+###  http://WFRepo/MSP/workflow/isInputOf
+mspwf:isInputOf rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf core:ListProperty ;
+                rdfs:domain msp:data ;
+                rdfs:range msp:workflow ;
+                core:sparqlString "^<http://WFRepo/MSP/workflow/hasInput>" ;
+                rdfs:label "Is input of"@en .
+
+
+###  http://WFRepo/MSP/workflow/isOutputOf
+mspwf:isOutputOf rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf core:ListProperty ;
+                 rdfs:domain msp:data ;
+                 rdfs:range msp:workflow ;
+                 core:sparqlString "^<http://WFRepo/MSP/workflow/hasOutput>" ;
+                 rdfs:label "is output of"@en .
+
+
+###  http://WFRepo/MSP/workflow/purpose
+mspwf:purpose rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf core:AutocompleteProperty ;
+              rdfs:domain msp:workflow ;
+              rdfs:range this:Literal ;
+              core:sparqlString "<http://WFRepo/MSP/workflow/purpose>/<http://www.w3.org/2004/02/skos/core#prefLabel>" ;
+              rdfs:label "Workflow purpose" .
+
+
+###  http://WFRepo/MSP/workflow/referenceObject
+mspwf:referenceObject rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf core:ListProperty ;
+                      rdfs:domain msp:data ;
+                      rdfs:range msp:data ;
+                      core:sparqlString "<http://purl.org/dc/terms/provenance>/<http://WFRepo/MSP/workflow/referenceObject>" ;
+                      core:tooltip "the dataset that was modified to create the present dataset" ;
+                      rdfs:label "reference object" .
+
+
+###  http://data.example.com/my-sparnatural-config/WFTtitle
+this:WFTtitle rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf core:AutocompleteProperty ;
+              rdfs:domain msp:workflow ;
+              rdfs:range this:Literal ;
+              core:sparqlString "<http://purl.org/dc/terms/title>" ;
+              rdfs:label "Title" .
+
+
+###  http://data.example.com/my-sparnatural-config/workflowHasPart
+this:workflowHasPart rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf core:SearchProperty ;
+                     owl:inverseOf <this:workflowIsPartOf> ;
+                     rdfs:domain msp:workflow ;
+                     rdfs:range msp:workflow ;
+                     core:sparqlString "<http://purl.org/dc/terms/hasPart>" ;
+                     rdfs:label "Has part" .
+
+
+###  http://purl.org/dc/elements/1.1/isVersionOf
+<http://purl.org/dc/elements/1.1/isVersionOf> rdf:type owl:ObjectProperty ;
+                                              rdfs:subPropertyOf core:AutocompleteProperty ;
+                                              rdfs:domain msp:workflow ;
+                                              rdfs:range msp:workflow ;
+                                              core:sparqlString "<http://purl.org/dc/terms/provenance>/<http://purl.org/dc/terms/isVersionOf>" ,
+                                                                "^<http://purl.org/dc/terms/hasVersion>" ;
+                                              core:tooltip "this workflow is a version of another WF (the input and parameter values might differ, the operations and their order remain the same)" ;
+                                              rdfs:label "is version of" .
+
+
+###  http://purl.org/dc/elements/1.1/replaces
+<http://purl.org/dc/elements/1.1/replaces> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf core:AutocompleteProperty ;
+                                           rdfs:domain msp:workflow ;
+                                           rdfs:range this:Literal ;
+                                           core:sparqlString "<http://purl.org/dc/terms/provenance>/<http://purl.org/dc/terms/replaces>" ;
+                                           core:tooltip "This workflow replaces another workflow that is now deprecated" ;
+                                           rdfs:label "replaces version" .
+
+
+###  http://purl.org/dc/terms/ProvenanceStatement
+dc:ProvenanceStatement rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf core:SearchProperty ;
+                       rdfs:domain msp:workflow ;
+                       rdfs:range this:Literal ;
+                       core:sparqlString "<http://purl.org/dc/terms/provenance>/<http://purl.org/dc/terms/ProvenanceStatement>" ;
+                       rdfs:comment "Changes made" ;
+                       rdfs:label "Changes description" .
+
+
+###  http://purl.org/dc/terms/created
+dc:created rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf core:TimeProperty-Date ;
+           rdfs:domain msp:workflow ;
+           rdfs:range <http://data.example.com/my-sparnatural-config/Literal/Date> ;
+           core:exactDateProperty "" ;
+           rdfs:label "created" .
+
+
+###  http://purl.org/dc/terms/isReplacedBy
+dc:isReplacedBy rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf core:AutocompleteProperty ,
+                                   core:ListProperty ;
+                rdfs:domain msp:workflow ;
+                rdfs:range msp:workflow ;
+                core:sparqlString "<http://purl.org/dc/terms/provenance>/<http://purl.org/dc/terms/isReplacedBy>" ;
+                rdfs:label "Is replaced by"@en .
+
+
+###  http://purl.org/dc/terms/license
+dc:license rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf core:ListProperty ;
+           rdfs:domain msp:data ;
+           rdfs:range this:Literal ;
+           core:sparqlString "<http://www.w3.org/ns/dcat#distribution>/<http://purl.org/dc/terms/license>" ;
+           rdfs:label "Data license" .
+
+
+###  http://purl.org/dc/terms/modified
+dc:modified rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf core:TimeProperty-Date ;
+            rdfs:domain msp:data ;
+            rdfs:range <http://data.example.com/my-sparnatural-config/Literal/Date> ;
+            core:exactDateProperty "" ;
+            rdfs:comment "Last modification date" ;
+            rdfs:label "Last modification date" .
+
+
+###  http://purl.org/dc/terms/replaces
+dc:replaces rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf core:ListProperty ;
+            rdfs:domain msp:workflow ;
+            rdfs:range msp:workflow ;
+            rdfs:label "Replaces"@en .
+
+
+###  http://purl.org/dc/terms/requires
+dc:requires rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf core:ListProperty ;
+            rdfs:domain msp:data ;
+            rdfs:range this:Literal ;
+            rdfs:label "requires" .
+
+
+###  http://purl.org/dc/terms/version
+dc:version rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf core:ListProperty ;
+           rdfs:domain msp:workflow ;
+           rdfs:range rdfs:Literal ;
+           rdfs:label "Version no."@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf core:AutocompleteProperty ;
+               rdfs:domain msp:vocabulary ;
+               rdfs:range this:Literal ;
+               rdfs:label "Vocabulary label" .
+
+
+###  http://www.w3.org/2006/vcard/ns#email
+vcard:email rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf core:AutocompleteProperty ;
+            rdfs:domain msp:workflow ;
+            rdfs:range this:Literal ;
+            core:order 2 ;
+            core:sparqlString "<http://purl.org/dc/terms/creator>/<http://www.w3.org/2006/vcard/ns#email>" ;
+            rdfs:label "Creator's email" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasEmail
+vcard:hasEmail rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf core:AutocompleteProperty ;
+               rdfs:domain msp:data ;
+               rdfs:range this:Literal ;
+               core:order 2 ;
+               core:sparqlString "<http://www.w3.org/ns/dcat#contactPoint>/<http://www.w3.org/2006/vcard/ns#hasEmail>" ;
+               rdfs:label "Contact point email"@en .
+
+
+###  http://www.w3.org/ns/dcat#theme
+dcat:theme rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf core:AutocompleteProperty ,
+                              core:ListProperty ;
+           rdfs:domain msp:data ;
+           rdfs:range this:Literal ;
+           core:sparqlString "<http://www.w3.org/ns/dcat#theme>/<http://www.w3.org/2004/02/skos/core#prefLabel>" ;
+           rdfs:label "Theme"@en .
+
+
+###  https://www.w3.org/TR/2004/REC-owl-semantics-20040210/#sameAs
+<https://www.w3.org/TR/2004/REC-owl-semantics-20040210/#sameAs> rdf:type owl:ObjectProperty ;
+                                                                rdfs:subPropertyOf core:AutocompleteProperty ;
+                                                                rdfs:domain msp:vocabulary ;
+                                                                rdfs:range msp:vocabulary ;
+                                                                rdfs:label "Same as" .
+
+
+###  this:WFKeyword
+<this:WFKeyword> rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf core:AutocompleteProperty ;
+                 rdfs:domain msp:workflow ;
+                 rdfs:range this:Literal ;
+                 core:sparqlString "<http://www.w3.org/ns/dcat#keyword>" ;
+                 rdfs:label "Keyword"@en .
+
+
+###  this:dataContactPointName
+<this:dataContactPointName> rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf core:AutocompleteProperty ;
+                            rdfs:domain msp:data ;
+                            rdfs:range this:Literal ;
+                            core:order 1 ;
+                            core:sparqlString "<http://www.w3.org/ns/dcat#contactPoint>/<http://www.w3.org/2006/vcard/ns#fn>" ;
+                            rdfs:label "Contact Point Name" .
+
+
+###  this:dataKeyword
+<this:dataKeyword> rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf core:ListProperty ,
+                                      core:SearchProperty ;
+                   rdfs:domain msp:data ;
+                   rdfs:range this:Literal ;
+                   core:sparqlString "<http://www.w3.org/ns/dcat#keyword>" ;
+                   rdfs:label "Keyword"@en .
+
+
+###  this:dataTitle
+<this:dataTitle> rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf core:SearchProperty ;
+                 rdfs:domain msp:data ;
+                 rdfs:range this:Literal ;
+                 core:sparqlString "<http://purl.org/dc/terms/title>" ;
+                 rdfs:label "Title"@en .
+
+
+###  this:vocabularyHasPart
+<this:vocabularyHasPart> rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf core:SearchProperty ;
+                         owl:inverseOf <this:vocabularyIsPartOf> ;
+                         rdfs:domain msp:vocabulary ;
+                         rdfs:range msp:vocabulary ;
+                         core:sparqlString "<http://purl.org/dc/terms/hasPart>" ;
+                         rdfs:label "Has part" .
+
+
+###  this:vocabularyIsPartOf
+<this:vocabularyIsPartOf> rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf core:AutocompleteProperty ,
+                                             core:SearchProperty ;
+                          rdfs:domain msp:vocabulary ;
+                          rdfs:range msp:vocabulary ;
+                          core:sparqlString "<http://purl.org/dc/terms/isPartOf>" ;
+                          core:tooltip "Choose this property for data that might be part of other components" ;
+                          rdfs:label "Is part of"@en .
+
+
+###  this:workflowIsPartOf
+<this:workflowIsPartOf> rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf core:SearchProperty ;
+                        rdfs:domain msp:workflow ;
+                        rdfs:range msp:workflow ;
+                        core:sparqlString "<http://purl.org/dc/terms/isPartOf>" ;
+                        core:tooltip "Use this property when searching for a Workflow that is used in another workflow" ;
+                        rdfs:label "Workflow is part of" .
+
+
+###  this:worklowCreatorName
+<this:worklowCreatorName> rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf core:AutocompleteProperty ;
+                          rdfs:domain msp:workflow ;
+                          rdfs:range this:Literal ;
+                          core:order 1 ;
+                          core:sparqlString "<http://purl.org/dc/terms/creator>/<http://www.w3.org/2006/vcard/ns#fn>" ;
+                          rdfs:label "Creator's name"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://WFRepo/MSP/data
+msp:data rdf:type owl:Class ;
+         rdfs:subClassOf core:SparnaturalClass ;
+         core:order 3 ;
+         rdfs:label "Data"@en .
+
+
+###  http://WFRepo/MSP/vocabulary
+msp:vocabulary rdf:type owl:Class ;
+               rdfs:subClassOf core:SparnaturalClass ;
+               core:order 4 ;
+               core:sparqlString "<http://WFRepo/MSP/vocabulary>" ;
+               rdfs:label "Vocabulary" .
+
+
+###  http://WFRepo/MSP/workflow
+msp:workflow rdf:type owl:Class ;
+             rdfs:subClassOf core:SparnaturalClass ;
+             core:order 1 ;
+             rdfs:label "Workflow"@en .
+
+
+###  http://WFRepo/MSP/data/input
+mspd:input rdf:type owl:Class ;
+           rdfs:subClassOf core:SparnaturalClass ;
+           core:order 7 ;
+           rdfs:label "Input data"@en .
+
+
+###  http://WFRepo/MSP/vocabulary/environmentalConditions
+mspv:environmentalConditions rdf:type owl:Class ;
+                             rdfs:subClassOf core:SparnaturalClass ;
+                             rdfs:label "Environmental conditions"@en .
+
+
+###  http://WFRepo/MSP/vocabulary/environmentalSuitability
+mspv:environmentalSuitability rdf:type owl:Class ;
+                              rdfs:subClassOf core:SparnaturalClass ;
+                              rdfs:label "Environmental suitability"@en .
+
+
+###  http://WFRepo/MSP/vocabulary/spatialSuitability
+mspv:spatialSuitability rdf:type owl:Class ;
+                        rdfs:subClassOf core:SparnaturalClass .
+
+
+###  http://WFRepo/MSP/vocabulary/suitableAreas
+mspv:suitableAreas rdf:type owl:Class ;
+                   rdfs:subClassOf core:SparnaturalClass ;
+                   rdfs:label "Suitable areas"@en .
+
+
+###  http://WFRepo/MSP/vocabulary/unsuitableAreas
+mspv:unsuitableAreas rdf:type owl:Class ;
+                     rdfs:subClassOf core:SparnaturalClass ;
+                     rdfs:label "Unsuitable areas"@en .
+
+
+###  http://WFRepo/MSP/vocabulary/windFarms
+mspv:windFarms rdf:type owl:Class ;
+               rdfs:subClassOf core:SparnaturalClass .
+
+
+###  http://WFRepo/MSP/vocabulary/windParks
+mspv:windParks rdf:type owl:Class ;
+               rdfs:subClassOf core:SparnaturalClass ;
+               rdfs:label "Wind Parks"@en .
+
+
+###  http://WFRepo/MSP/workflow/operations
+mspwf:operations rdf:type owl:Class ;
+                 rdfs:subClassOf core:SparnaturalClass ;
+                 rdfs:label "operations" .
+
+
+###  http://data.example.com/my-sparnatural-config/Literal
+this:Literal rdf:type owl:Class ;
+             rdfs:subClassOf rdfs:Literal ;
+             core:faIcon "fa-solid fa-pen-to-square" ;
+             core:order 2 ;
+             core:tooltip "Choose this if the value you are searching for is a string, such as a name, title, keyword, a (operation's or workflow's) purpose, version numbers, etc."@en ;
+             rdfs:label "Literal value"@en .
+
+
+###  http://data.example.com/my-sparnatural-config/Literal/Date
+<http://data.example.com/my-sparnatural-config/Literal/Date> rdf:type owl:Class ;
+                                                             rdfs:subClassOf rdfs:Literal ;
+                                                             core:faIcon "fa-regular fa-calendar-days" ;
+                                                             core:order 5 ;
+                                                             rdfs:label "Date" .
+
+
+###  http://www.opengis.net/ont/geosparql#wktLiteral
+geo:wktLiteral rdf:type owl:Class ;
+               rdfs:subClassOf rdfs:Literal ;
+               core:order 6 ;
+               core:tooltip "Choose this to search on the map" ;
+               rdfs:label "Bounding Boxes" .
+
+
+###  http://www.w3.org/2006/vcard/ns#Individual
+vcard:Individual rdf:type owl:Class ;
+                 rdfs:subClassOf core:SparnaturalClass ;
+                 core:order 5 ;
+                 rdfs:label "Individual"@en .
+
+
+###  http://www.w3.org/2006/vcard/ns#Organization
+vcard:Organization rdf:type owl:Class ;
+                   rdfs:subClassOf core:SparnaturalClass ;
+                   rdfs:label "organization" .
+
+
+###  this:attribute
+<this:attribute> rdf:type owl:Class ;
+                 rdfs:subClassOf core:SparnaturalClass ;
+                 rdfs:label "this attribute" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://WFRepo/MSP/vocabulary/BufferAreas
+mspv:BufferAreas rdf:type owl:NamedIndividual ,
+                          msp:vocabulary .
+
+
+###  http://WFRepo/MSP/vocabulary/MPAs
+mspv:MPAs rdf:type owl:NamedIndividual ,
+                   this:Literal ;
+          owl:sameAs mspv:MarineProtectedAreas .
+
+
+###  http://WFRepo/MSP/vocabulary/MarineProtectedAreas
+
+###  http://WFRepo/MSP/vocabulary/MarineProtectedAreas
+mspv:MarineProtectedAreas rdf:type owl:NamedIndividual ,
+                                   this:Literal .
+
+
+###  http://WFRepo/MSP/vocabulary/bathymetry
+mspv:bathymetry rdf:type owl:NamedIndividual ,
+                         msp:vocabulary ,
+                         this:Literal ;
+                owl:sameAs mspv:depth .
+
+
+###  http://WFRepo/MSP/vocabulary/depth
+
+###  http://WFRepo/MSP/vocabulary/cablesPipelines
+mspv:cablesPipelines rdf:type owl:NamedIndividual ,
+                              msp:vocabulary ;
+                     dc:requires mspv:BufferAreas .
+
+
+###  http://WFRepo/MSP/vocabulary/depth
+mspv:depth rdf:type owl:NamedIndividual ,
+                    msp:vocabulary ,
+                    this:Literal .
+
+
+###  http://WFRepo/MSP/vocabulary/greenEnergy
+mspv:greenEnergy rdf:type owl:NamedIndividual ,
+                          msp:vocabulary ;
+                 owl:sameAs mspv:renewableEnergy ;
+                 dc:requires mspv:BufferAreas ;
+                 <this:vocabularyHasPart> mspv:cablesPipelines ,
+                                          mspv:waveFarms ,
+                                          mspv:windFarms ;
+                 <this:vocabularyIsPartOf> mspv:hardUses .
+
+
+###  http://WFRepo/MSP/vocabulary/renewableEnergy
+
+###  http://WFRepo/MSP/vocabulary/hardUses
+mspv:hardUses rdf:type owl:NamedIndividual ,
+                       msp:vocabulary .
+
+
+###  http://WFRepo/MSP/vocabulary/marineSpatialPlanning
+mspv:marineSpatialPlanning rdf:type owl:NamedIndividual .
+
+
+###  http://WFRepo/MSP/vocabulary/occupiedAreas
+mspv:occupiedAreas rdf:type owl:NamedIndividual ,
+                            msp:vocabulary ;
+                   <this:vocabularyHasPart> mspv:softUses .
+
+
+###  http://WFRepo/MSP/vocabulary/offshore
+mspv:offshore rdf:type owl:NamedIndividual .
+
+
+###  http://WFRepo/MSP/vocabulary/oilGasExplorationExploitation
+mspv:oilGasExplorationExploitation rdf:type owl:NamedIndividual ,
+                                            msp:vocabulary ;
+                                   dc:requires mspv:BufferAreas ;
+                                   <this:vocabularyHasPart> mspv:cablesPipelines ,
+                                                            mspv:oilGasPlatforms ;
+                                   <this:vocabularyIsPartOf> mspv:hardUses .
+
+
+###  http://WFRepo/MSP/vocabulary/oilGasPlatforms
+mspv:oilGasPlatforms rdf:type owl:NamedIndividual ,
+                              msp:vocabulary ;
+                     <this:vocabularyIsPartOf> mspv:oilGasExplorationExploitation .
+
+
+###  http://WFRepo/MSP/vocabulary/renewableEnergy
+mspv:renewableEnergy rdf:type owl:NamedIndividual ,
+                              msp:vocabulary ;
+                     <this:vocabularyHasPart> mspv:waveFarms ,
+                                              mspv:windFarms .
+
+
+###  http://WFRepo/MSP/vocabulary/shippingRoutes
+mspv:shippingRoutes rdf:type owl:NamedIndividual ,
+                             msp:vocabulary ;
+                    dc:requires mspv:BufferAreas ;
+                    <this:vocabularyIsPartOf> mspv:softUses .
+
+
+###  http://WFRepo/MSP/vocabulary/softUses
+mspv:softUses rdf:type owl:NamedIndividual ,
+                       msp:vocabulary .
+
+
+###  http://WFRepo/MSP/vocabulary/spatialSuitability
+mspv:spatialSuitability rdf:type owl:NamedIndividual .
+
+
+###  http://WFRepo/MSP/vocabulary/spatiallySuitable
+mspv:spatiallySuitable rdf:type owl:NamedIndividual ,
+                                msp:vocabulary .
+
+
+###  http://WFRepo/MSP/vocabulary/waveFarms
+mspv:waveFarms rdf:type owl:NamedIndividual ,
+                        msp:vocabulary .
+
+
+###  http://WFRepo/MSP/vocabulary/windFarms
+mspv:windFarms rdf:type owl:NamedIndividual ,
+                        msp:vocabulary .
+
+
+###  http://WFRepo/MSP/workflow/buffer
+mspwf:buffer rdf:type owl:NamedIndividual ,
+                      mspwf:operations .
+
+
+###  http://WFRepo/MSP/workflow/clipRaster
+mspwf:clipRaster rdf:type owl:NamedIndividual ,
+                          mspwf:operations .
+
+
+###  http://WFRepo/MSP/workflow/clipVector
+mspwf:clipVector rdf:type owl:NamedIndividual ,
+                          mspwf:operations .
+
+
+###  http://WFRepo/MSP/workflow/difference
+mspwf:difference rdf:type owl:NamedIndividual ,
+                          mspwf:operations .
+
+
+###  http://WFRepo/MSP/workflow/reproject
+mspwf:reproject rdf:type owl:NamedIndividual ,
+                         mspwf:operations .
+
+
+###  http://data.example.com/my-sparnatural-config/list_myname_count
+this:list_myname_count rdf:type owl:NamedIndividual ,
+                                datasources:SparqlDatasource ;
+                       datasources:queryTemplate datasources:query_list_label_count ;
+                       datasources:labelProperty "<http://example.com/ontology/myname>" .
+
+
+###  http://data.example.com/my-sparnatural-config/list_skosprefLabel_alpha_with_count_langfr
+this:list_skosprefLabel_alpha_with_count_langfr rdf:type owl:NamedIndividual ,
+                                                         datasources:SparqlDatasource ;
+                                                datasources:queryTemplate this:query_list_label_alpha_with_count_langfr ;
+                                                datasources:labelProperty skos:prefLabel .
+
+
+###  http://data.example.com/my-sparnatural-config/query_list_label_alpha_langfr
+this:query_list_label_alpha_langfr rdf:type owl:NamedIndividual ,
+                                            datasources:SPARQLQuery ;
+                                   datasources:queryString """SELECT DISTINCT ?uri ?label
+WHERE {
+ ?domain a $domain .
+ ?domain $property ?uri .
+ # Note how the range criteria is not used in this query
+ FILTER(isIRI(?uri))
+
+ OPTIONAL { ?uri $labelPath ?theLabelLang . FILTER(lang(?theLabelLang) = $lang) }
+ OPTIONAL { ?uri $labelPath ?theLabelNone . FILTER(lang(?theLabelNone) = \"\") }
+ OPTIONAL { ?uri $labelPath ?theLabelFr . FILTER(lang(?theLabelFr) = \"fr\") }
+ BIND(COALESCE(?theLabelLang, ?theLabelNone, ?theLabelFr) AS ?label)
+}
+ORDER BY UCASE(?label)
+LIMIT 500""" ;
+                                   rdfs:comment "A query that will list entries alphabetically by fetching first in the user language but will default to French"@en .
+
+
+###  http://data.example.com/my-sparnatural-config/query_list_label_alpha_with_count_langfr
+this:query_list_label_alpha_with_count_langfr rdf:type owl:NamedIndividual ,
+                                                       datasources:SPARQLQuery ;
+                                              datasources:queryString """SELECT DISTINCT ?uri ?count (CONCAT(STR(?theLabel), ' (', STR(?count), ')') AS ?label)
+WHERE {
+{
+ SELECT DISTINCT ?uri (COUNT(?domain) AS ?count)
+ WHERE {
+ ?domain a $domain .
+ ?domain $property ?uri .
+ FILTER(isIRI(?uri))
+ # Note how the range criteria is not used in this query
+ }
+ GROUP BY ?uri
+}
+OPTIONAL { ?uri $labelPath ?theLabelLang . FILTER(lang(?theLabelLang) = $lang) }
+OPTIONAL { ?uri $labelPath ?theLabelNone . FILTER(lang(?theLabelNone) = \"\") }
+OPTIONAL { ?uri $labelPath ?theLabelFr . FILTER(lang(?theLabelFr) = \"fr\") }
+BIND(COALESCE(?theLabelLang, ?theLabelNone, ?theLabelFr, STR(?uri)) AS ?theLabel)
+}
+ORDER BY UCASE(?label)
+LIMIT 500""" ;
+                                              rdfs:comment "A query that will list entries alphabetically with number of occurrences in parenthesis by fetching first in the user language but will default to French"@en .
+
+
+###  http://data.example.com/my-sparnatural-config/query_list_label_count_langfr
+this:query_list_label_count_langfr rdf:type owl:NamedIndividual ,
+                                            datasources:SPARQLQuery ;
+                                   datasources:queryString """SELECT ?uri ?count (CONCAT(STR(?theLabel), ' (', STR(?count), ')') AS ?label)
+WHERE {
+{
+ SELECT DISTINCT ?uri (COUNT(?domain) AS ?count)
+ WHERE {
+ ?domain a $domain .
+ ?domain $property ?uri .
+ FILTER(isIRI(?uri))
+ # Note how the range criteria is not used in this query
+ }
+ GROUP BY ?uri
+}
+OPTIONAL { ?uri $labelPath ?theLabelLang . FILTER(lang(?theLabelLang) = $lang) }
+OPTIONAL { ?uri $labelPath ?theLabelNone . FILTER(lang(?theLabelNone) = \"\") }
+OPTIONAL { ?uri $labelPath ?theLabelFr . FILTER(lang(?theLabelFr) = \"fr\") }
+BIND(COALESCE(?theLabelLang, ?theLabelNone, ?theLabelFr) AS ?theLabel)
+}
+ORDER BY DESC(?count) UCASE(?label)
+LIMIT 500""" ;
+                                   rdfs:comment "A query that will list entries by descending number of occurrences by fetching first in the user langauge but will default to French"@en .
+
+
+###  http://data.example.com/my-sparnatural-config/query_search_label_contains_langfr
+this:query_search_label_contains_langfr rdf:type owl:NamedIndividual ,
+                                                 datasources:SPARQLQuery ;
+                                        datasources:queryString """SELECT DISTINCT ?uri ?label
+WHERE {
+ ?domain a $domain .
+ ?domain $property ?uri .
+ ?uri a $range .
+ ?uri $labelPath ?label .
+ FILTER(isIRI(?uri))
+ FILTER(CONTAINS(LCASE(STR(?label)), LCASE(\"$key\"))) 
+ FILTER(lang(?label) = '' || lang(?label) = \"fr\")
+} 
+ORDER BY UCASE(?label)
+LIMIT 50""" ;
+                                        rdfs:comment "A query that will search in labels using contains function, first in the user language but will default to French."@en .
+
+
+###  http://www.opengis.net/def/function/geosparql/GeoExtractProcess
+geof:GeoExtractProcess rdf:type owl:NamedIndividual .
+
+
+###  http://www.opengis.net/def/function/geosparql/union
+geof:union rdf:type owl:NamedIndividual ,
+                    mspwf:operations .
+
+
+###  https://geopw.whu.edu.cn/wpsprocesses.html#GeoProjProcess
+<https://geopw.whu.edu.cn/wpsprocesses.html#GeoProjProcess> rdf:type owl:NamedIndividual .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+mspv:spatialSuitability rdfs:label "Spatially suitable areas"@en .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

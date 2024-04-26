@@ -1,0 +1,127 @@
+@prefix owl: <https://www.w3.org/TR/2004/REC-owl-semantics-20040210/#> . #protege already has this one by default
+@prefix xml:<http://www.w3.org/XML/1998/namespace> . #protege already has this one by default
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns/> . #protege already has this one by default
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . #protege already has this one by default
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . #protege already has this one by default, used it also for date time
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix gml: <http://www.opengis.net/gml/> .
+@prefix ccd: <http://geographicknowledge.de/vocab/CoreConceptData.rdf#> . 
+@prefix schema: <https://schema.org/> .
+@prefix irao: <http://ontology.ethereal.cz/irao> .
+@prefix msp: <http://WFRepo/MSP/> .
+@prefix mspwf: <http://WFRepo/MSP/workflow/> .
+@prefix mspd: <http://WFRepo/MSP/data/> .
+@prefix mspv: <http://WFRepo/MSP/vocabulary/> .
+@prefix ns0: <http://www.opengis.net/ont/geosparql#> .
+
+<http://WFRepo/MSP/workflow/WindFarmEnvironmentalSuitabilityV0.71> a mspwf:workflow;
+	dc:title "Environmental suitability analysis for offshore wind parks"@en;
+	dc:description "Workflow to find suitable areas according to environmental conditions"@en;
+	dc:identifier "mspwf@environmentSuitability#windfarmsV0.71"^^xsd:string;
+	msp:hasVocabTerm <https://inspire.ec.europa.eu/theme/er>, mspv:environmentalSuitabilityAnalyis, mspv:environmentallySuitableAreas, mspv:renewableEnergy, mspv:greenEnergy;
+#it should be possible to infer this by the input/output data
+	mspwf:purpose mspv:environmentalSuitabilityAnalysis, mspv:offshore, mspv:marineSpatialPlanning, mspv:sitting, mspv:allocation;
+	dc:source ""^^xsd:string;
+	dc:references "Planning Criteria for Offshore Wind Energy. (n.d.). Retrieved from https://maritime-spatial-planning.ec.europa.eu/media/document/12529 on 09/02/2024"^^xsd:string;#add relevant articles
+	dc:bibliographicCitation ""^^xsd:string;
+	#use the DOI here when relevant
+	dc:created "2024-02-09T11:04:00Z"^^xsd:date;
+	dc:creator [
+		vcard:fn "Magali D. do Patrocínio Gonçalves"^^xsd:string;
+			a vcard:Individual;
+			vcard:email "goncalves.m@buas.nl";
+		vcard:Organization <https://www.buas.nl>;
+			a vcard:Organization;
+			vcard:fn "Breda University of Applied Sciences", "BUas"];	
+			
+	dc:contributor "Magali D. do Patrocínio Gonçalves"^^xsd:string;
+	dc:rights <https://www.gnu.org/licenses/gpl-3.0.txt>,
+	<https://www.gnu.org/licenses/gpl-3.0.html>;
+	dc:publisher [
+	foaf:name "mspwf";
+	foaf:homepage <http://WFRrepo.info> ];
+	dc:accessRights <https://www.gnu.org/licenses/gpl-3.0.txt>,
+	<https://www.gnu.org/licenses/gpl-3.0.html>;
+	dc:rightsHolder ""^^xsd:string;
+	dc:version "0.61"^^xsd:string;
+	dcat:theme <https://inspire.ec.europa.eu/theme/er>,
+	mspv:environmentalSuitability;
+	irao:DevelopmentStatus "inProgress";
+	dc:provenance [
+		dc:contributor "Magali D. do Patrocínio Gonçalves"^^xsd:string;
+		dc:ProvenanceStatement	"Slight alteration of first version, using depth values from -40m towards shore."^^xsd:string ;
+		dc:replaces "" ;
+		dc:isReplacedBy ""^^xsd:string;
+		dc:modified "2024-02-11"^^xsd:date;
+		dc:isVersionOf <http://WFRepo/MSP/workflow/WindFarmEnvironmentalSuitabilityV0.7>;
+		dc:format <https://www.w3.org/TR/turtle/>] ;
+	dc:language <http://publications.europa.eu/resource/authority/language/ENG>;
+	
+	mspwf:hasInput <http://WFRepo/MSP/data/ff3aff8a-cff1-44a3-a2c8-1910bf109f85BathymetryNorthSeaEPSG28992V1.0>,
+		<https://emodnet.ec.europa.eu/geonetwork/srv/resources/resources/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4>;
+	#where the input from bathymetry comes from (it's an output of this wf)
+	dc:hasPart <http://WFRepo/MSP/workflow/BathymetryDataPrepNSV1.0>;
+	
+	mspwf:hasOutput <http://WFRepo/MSP/data/ff3aff8a-cff1-44a3-a2c8-1910bf109f85BathymetryNorthSeaEPSG28992V1.0Less60mV0.71>,
+		<http://WFRepo/MSP/data/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4SeabedSubstrateClippedV0.71>,
+		<http://WFRepo/MSP/data/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4SeabedSubstrateClippedEPSG28992V0.71>,
+		<http://WFRepo/MSP/data/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4SandGravelClippedV0.71>,
+		<http://WFRepo/MSP/data/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4SandGravelClippedRasterV0.71>,
+		<http://WFRepo/MSP/data/EnvironmentallySuitableWindFarmsV0.71>.
+
+
+#mspd:output rdfs:subClassOf msp:data.
+mspd:intermediateOutput rdfs:subClassOf msp:data.
+mspd:finalOutput rdfs:subClassOf msp:data.
+mspd:input rdfs:subClassOf msp:data .
+mspwf:subWorkflow rdfs:subClassOf msp:workflow. 
+
+<http://WFRepo/MSP/data/ff3aff8a-cff1-44a3-a2c8-1910bf109f85BathymetryNorthSeaEPSG28992V1.0> a mspd:input,
+	ccd:FieldRaster;
+msp:hasVocabTerm mspv:bathymetry, mspv:depth;
+	dc:isPartOf mspv:environmentalConditions.
+
+<https://emodnet.ec.europa.eu/geonetwork/srv/resources/resources/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4> a mspd:input,
+	ccd:ObjectVector, ccd:region;
+	msp:hasVocabTerm mspv:seabed, mspv:substrate, mspv:sediment;
+	dc:isPartOf mspv:environmentalConditions.
+	
+<http://WFRepo/MSP/data/ff3aff8a-cff1-44a3-a2c8-1910bf109f85BathymetryNorthSeaEPSG28992Less60mV0.71>a mspd:intermediateOutput,
+	ccd:FieldRaster;
+msp:hasVocabTerm mspv:bathymetry, mspv:depth;
+	dc:isPartOf mspv:environmentalConditions.
+
+<http://WFRepo/MSP/data/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4SeabedSubstrateClippedV0.71>a mspd:intermediateOutput,
+	ccd:ObjectVector, ccd:region;
+	msp:hasVocabTerm mspv:seabed, mspv:substrate, mspv:sediment;
+	dc:isPartOf mspv:environmentalConditions.
+
+<http://WFRepo/MSP/data/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4SeabedSubstrateClippedEPSG28992V0.71> a mspd:intermediateOutput,
+	ccd:ObjectVector, ccd:region;
+	msp:hasVocabTerm mspv:seabed, mspv:substrate, mspv:sediment;
+	dc:isPartOf mspv:environmentalConditions.
+
+<http://WFRepo/MSP/data/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4SandGravelClippedV0.71> a mspd:intermediateOutput,
+	ccd:ObjectVector, ccd:region;
+	msp:hasVocabTerm mspv:seabed, mspv:substrate, mspv:sediment;
+	dc:isPartOf mspv:environmentalConditions.
+	
+<http://WFRepo/MSP/data/6eaf4c6bf28815e973b9c60aab5734e3ef9cd9c4SandGravelClippedRasterV0.71> a mspd:intermediateOutput,
+		ccd:ExistenceRaster;
+		msp:hasVocabTerm mspv:seabed, mspv:substrate, mspv:sediment;
+	dc:isPartOf mspv:environmentalConditions.
+
+<http://WFRepo/MSP/data/EnvironmentallySuitableWindFarmsV0.71> a mspd:finalOutput,
+			ccd:ExistenceRaster;
+			msp:hasVocabTerm mspv:seabed, mspv:substrate, mspv:sediment, mspv:bathymetry, mspv:depth, mspv:suitable, mspv:suitability, <https://inspire.ec.europa.eu/theme/er>, mspv:sitting, mspv:allocation,  mspv:environmentalSuitability.
+
+# more details regarding metadata
+dcat:theme dc:VocabularyEncodingScheme "controlled vocabulary: GEMET - INSPIRE themes, version 1.0 (reference date: 2008-06-01)".
+
+	
+mspv:environmentalSuitability dc:isPartOf mspv:suitabilityAnalysis.
+

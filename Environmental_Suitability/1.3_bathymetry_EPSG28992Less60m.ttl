@@ -1,0 +1,96 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns0: <http://www.w3.org/ns/locn#> .
+@prefix ns1: <https://www.iana.org/assignments/media-types/application/vnd.geo+> .
+@prefix ns2: <http://www.opengis.net/ont/geosparql#> .
+@prefix schema: <http://schema.org/> .
+@prefix gco: <https://schemas.isotc211.org/19115/-3/gco/1.0/gco/> .#I could not make this work in protege, used data time frm xsd for now ->emodnet uses ^^xsd:date
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns3: <http://www.w3.org/ns/adms#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix parameter: <http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#> .
+@prefix msp: <http://WFRepo/MSP/> .
+@prefix mspwf: <http://WFRepo/MSP/workflow/> .
+@prefix mspd: <http://WFRepo/MSP/data/> .
+@prefix mspv: <http://WFRepo/MSP/workflow/vocabulary/> .
+
+<http://WFRepo/MSP/data/ff3aff8a-cff1-44a3-a2c8-1910bf109f85BathymetryNorthSeaEPSG28992Less60mV1.0> a mspd:intermediateOutput;
+  dc:title "EMODnet Digital Bathymetry (DTM 2022) above -6-m for the Dutch EEZ in EPSG28992 projection"@en ;
+  dc:description "The \"EMODnet Digital Bathymetry (DTM)- 2022\" was clipped to the Dutch EEZ and reprojected to the EPSG28992 projection. Only cells with depth above -60m were kept."@en ;
+  dcat:theme <http://inspire.ec.europa.eu/theme/el> ;
+  dcat:keyword "/Physical Environment/Bathymetry/Digital Terrain Model"@en, "Elevation"@en, "Gravity, magnetics and bathymetry"@en, "Terrestrial"@en, "Administration and dimensions"@en, "Bathymetry and Elevation"@en, "Metadata parameters"@en, "Reference numbers"@en, "EMODnet"@en, "seafloor depth"@en, "ocean depth"@en, "Digital Terrain Model"@en, "DTM"@en, "grid"@en, "bathymetric data"@en, "European seas"@en, "Azores"@en, "Madeira"@en, "Canary Islands"@en, "North-East Atlantic"@en, "Bay of Biscay"@en, "Celtic Seas"@en, "English Channel"@en, "North Sea"@en, "Norvegian Sea"@en, "Iceland Sea"@en, "Baltic Sea"@en, "Mediterranean Sea"@en, "Adriatic Sea"@en, "Aegean Sea"@en, "Black Sea"@en, "Arctic"@en, "Barentz Sea"@en, "Seabed"@en, "Bathymetry"@en, "National"@en, "/Processed data/Model outputs"@en, ""@en, "/La Rochelle/LAR02"@en, "/Peniche"@en, "/Bournemouth"@en, "/Cherbourg"@en, "/La Rochelle"@en, "/Toulon/TOU01"@en, "/Boulogne-sur-Mer"@en, "/Cherbourg/CHE01"@en, "/International and global data portals"@en, "/Toulon/TOU02"@en, "/Toulon"@en, "/Toulon/TOU08"@en, "/Plymouth"@en, "/Brest"@en, "/Toulon/TOU05"@en, "/Toulon/TOU06"@en, "/Toulon/TOU03"@en, "/Toulon/TOU07"@en, "/Toulon/TOU04"@en ;
+  dc:identifier "ff3aff8a-cff1-44a3-a2c8-1910bf109f85BathymetryNorthSeaEPSG28992"^^xsd:string ;
+	dc:spatial[
+    	a dc:Location ;
+    	ns0:geometry "<http://www.opengis.net/def/crs/EPSG/0/28992> POLYGON((-28880.378 366133.093, -28003.802 876738.308, 256006.652 881997.761, 270908.435 374460.560, -28880.378 366133.093))"^^ns2:wktLiteral;
+		rdfs:label "Dutch Exclusive Economic Zone"@en;
+	    dc:isPartOf "Europe"@en];
+  dc:temporal [
+    a dc:PeriodOfTime ;
+    schema:startDate "1816-01-01T00:00:00"^^xsd:date ;
+    schema:endDate "2022-07-11T00:00:00"^^xsd:date
+  ] ;
+  dc:issued "2022-01-31"^^xsd:date ;
+  dc:provenance [
+ 	a dc:ProvenanceStatement ;
+    rdfs:label "Selected the areas with depth above -60m";
+    mspwf:referenceObject <http://WFRepo/MSP/data/ff3aff8a-cff1-44a3-a2c8-1910bf109f85BathymetryNorthSeaEPSG28992V1.0>;
+	mspwf:rasterCalculator [
+			parameter:hasParameter[
+			mspwf:parName "depth"^^gco:CharacterString;
+			mspwf:parType gco:UomURI;
+			mspwf:parValue "<-60"]];
+			mspwf:opPurpose "Select appropriate depth"];
+   dcat:distribution  [
+    a dcat:Distribution ;
+    dc:title ""@en ;
+    dc:description ""@en ;
+    dcat:accessURL "" ;
+    dc:license <https://www.gnu.org/licenses/gpl-3.0.txt>,
+	<https://www.gnu.org/licenses/gpl-3.0.html> ;
+    ns3:representationTechnique <http://inspire.ec.europa.eu/metadata-codelist/SpatialRepresentationTypeCode/grid> ;
+    dc:format [
+      skos:prefLabel "GeoTIFF" ;
+      rdfs:label "GeoTIFF"
+    ] ;
+    dc:conformsTo [
+      a dc:Standard ;
+      dc:title "WWW:DOWNLOAD-1.0-link--download"
+    ]
+  ];
+  dcat:contactPoint [
+    a vcard:Organization ;
+    vcard:fn "Shom (Service Hydrographique et Océanographique de la Marine)"@en ;
+    vcard:hasTelephone <tel:+330256312312> ;
+    vcard:hasEmail <mailto:webmaster@shom.fr> ;
+    vcard:hasURL <http://www.shom.fr/> ;
+    vcard:hasAddress [
+      a vcard:Address ;
+      vcard:street-address "13, rue du Chatellier CS92803" ;
+      vcard:locality "BREST CEDEX 2" ;
+      vcard:postal-code "29228" ;
+      vcard:country-name "France"
+    ];
+ 	a vcard:Organization ;
+    vcard:fn "MSP workflows"@en ;
+    vcard:hasTelephone "" ;
+    vcard:hasEmail "" ;
+    vcard:hasURL <http://WFRepo/MSP/workflow> ;
+    vcard:hasAddress [
+      a vcard:Address ;
+      vcard:street-address "" ;
+      vcard:locality "" ;
+      vcard:postal-code "" ;
+      vcard:country-name ""
+    ]
+  ] ;
+  dc:relation <https://emodnet.ec.europa.eu/geonetwork/srv/dut/catalog.search#/metadata/ff3aff8a-cff1-44a3-a2c8-1910bf109f85> ;
+  dc:license <https://emodnet.ec.europa.eu/geonetwork/srv/dut/catalog.search#/metadata/ff3aff8a-cff1-44a3-a2c8-1910bf109f85> .
+
+<http://inspire.ec.europa.eu/theme/el>
+  a skos:Concept ;
+  skos:prefLabel "Elevation"@en ;
+  skos:inScheme <http://inspire.ec.europa.eu/theme> .

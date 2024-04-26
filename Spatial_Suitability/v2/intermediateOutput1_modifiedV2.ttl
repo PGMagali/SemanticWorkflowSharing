@@ -1,0 +1,63 @@
+@prefix owl: <https://www.w3.org/TR/2004/REC-owl-semantics-20040210/#> . 
+@prefix xml:<http://www.w3.org/XML/1998/namespace> . 
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns/> . 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix ns0: <http://www.w3.org/ns/locn#> .
+@prefix ns1: <https://www.iana.org/assignments/media-types/application/vnd.geo+> .
+@prefix ns2: <http://www.opengis.net/ont/geosparql#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix gco: <https://schemas.isotc211.org/19115/-3/gco/1.0/gco/> . 
+@prefix gml: <http://www.opengis.net/gml/> .
+@prefix schema: <https://schema.org/> .
+@prefix parameter: <http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#> .
+@prefix msp: <http://WFRepo/MSP/> .
+@prefix mspwf: <http://WFRepo/MSP/workflow/> .
+@prefix mspd: <http://WFRepo/MSP/data/> .
+@prefix mspv: <http://WFRepo/MSP/workflow/vocabulary/> .
+
+<http://WFRepo/MSP/data/WindFarms_20221219_EPSG28992V1.1>  a mspd:intermediateOutput; 	# inspire mandatory
+	#identification
+	dc:title "Wind Farms reprojected to EPSG 28992"@en; 	# inspire mandatory
+	dc:description "The database on offshore wind farms in the EU was created in 2014 by CETMAR for the European Marine Observation and Data Network (EMODnet). It is the result of the aggregation and harmonization of datasets provided by several sources. It is updated every year and is available for viewing and download on EMODnet Human Activities web portal (https://emodnet.ec.europa.eu/en/human-activities). The database contains points and/or (where available) polygons representing offshore wind farms in the following countries: Belgium, Denmark, Estonia, Finland, France, Germany, Greece, Ireland, Italy, Latvia, Lithuania, Netherlands, Norway, Poland, Portugal, Spain, Sweden and United Kingdom. Each point has the following attributes (where available): Name, Nº of turbines, Status (Approved, Planned, Dismantled, Construction, Production, Test site), Country, Year, Power (MW), Distance to coast (metres) and Area (square kilometres). The distance to coast (EEA coastline shapefile) has been calculated using the UTM WGS84 Zone projected coordinate system where data fall in. This layer was reprojected from the original emodnet layer EMODnet Human Activities, Wind Farms"@en; #resource abstract inspire mandatory		
+	dcat:theme <https://inspire.ec.europa.eu/theme/er>,
+		mspv:HardUses,
+		mspv:RenewableEnergyProduction;
+	dcat:keyword "energy"@en, #Keyword value
+		"wind power"@en,
+		mspv:WindFarms;
+	dc:spatial[
+    	a dc:Location ;
+    	ns0:geometry "<http://www.opengis.net/def/crs/EPSG/0/28992> POLYGON((-270716.350 4354278.445, 574930.770 4294554.720, 4127706.473 -1675929.797, -4346846.022 -1448186.459, -270716.350 4354278.445))"^^ns2:wktLiteral;
+		rdfs:label "Europe"@en];	
+  dc:temporal [
+    a dc:PeriodOfTime ;
+    schema:startDate "2014-06-01"^^xsd:date ;
+    schema:endDate ""^^xsd:date
+  ] ;		
+	dc:identifier "WindFarms_20221219_EPSG28992"^^gco:CharacterString;		
+	dc:references "";
+	dc:issued ""^^gco:DateTime; 	# inspire mandatory (publication)
+	dc:modified "2023-02-19T00:00:00Z"^^gco:DateTime ; 	# modification date	
+	dc:language <http://publications.europa.eu/resource/authority/language/ENG>; 
+	#lineage
+	dc:provenance [
+   		a dc:ProvenanceStatement;
+  	 	rdfs:label "The object reference was reprojected to the projection that suits the area of interest. The resolution and attributes were kept the same as the object reference";
+  	 	mspwf:referenceObject <https://emodnet.ec.europa.eu/geonetwork/srv/resources/resources/8201070b-4b0b-4d54-8910-abcea5dce57f>;
+		mspwf:reproject [
+			parameter:hasParameter[
+				mspwf:parName "projection"^^gco:CharacterString;
+				mspwf:parType gco:UomURI;
+				mspwf:parValue <https://epsg.io/28992>]] ;
+		mspwf:opPurpose "Reproject the dataset as to be able to clip to the area of interest (better performance)"];
+	#metadata
+	dc:identifier "mspd:WindFarms_20221219_EPSG28992";
+	dc:language <http://publications.europa.eu/resource/authority/language/ENG>; 
+	dcat:contactPoint <https://cetmar.org>,
+		<http://WFRepo/MSP/workflow>;
+	dc:created "2023-02-19T00:00:00Z"^^gco:DateTime;	
+	dc:creator <http://WFRepo/MSP/workflow/>.

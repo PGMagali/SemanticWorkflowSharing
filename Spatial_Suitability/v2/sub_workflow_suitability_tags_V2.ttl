@@ -1,0 +1,129 @@
+@prefix owl: <https://www.w3.org/TR/2004/REC-owl-semantics-20040210/#> . 
+@prefix xml:<http://www.w3.org/XML/1998/namespace> . 
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix gml: <http://www.opengis.net/gml/> .
+@prefix ccd: <http://geographicknowledge.de/vocab/CoreConceptData.rdf#> . 
+@prefix schema: <https://schema.org/> .
+@prefix irao: <http://ontology.ethereal.cz/irao> .
+@prefix msp: <http://WFRepo/MSP/> .
+@prefix mspwf: <http://WFRepo/MSP/workflow/> .
+@prefix mspd: <http://WFRepo/MSP/data/> .
+@prefix mspv: <http://WFRepo/MSP/vocabulary/> .
+
+<http://WFRepo/MSP/workflow/WindFarmSpatialSuitabilityV1.1> a mspwf:workflow;
+	dc:title "Offshore wind parks spatial suitability analysis"@en;
+	dc:description "Workflow to find spatially suitable areas for offshore wind parks by exclusion of non-suitable areas"@en;
+	dc:identifier "mspwf@suitability#windfarmsV1.1"^^xsd:string;
+	msp:hasVocabTerm <https://inspire.ec.europa.eu/theme/er>, mspv:spatialSuitabilityAnalysis, mspv:spatiallySuitableAreas, mspv:renewableEnergy, mspv:greenEnergy;
+	mspwf:purpose mspv:spatialSuitabilityAnalysis, mspv:offshore, mspv:marineSpatialPlanning, mspv:sitting, mspv:allocation;
+	dc:source ""^^xsd:string;
+	dc:references "Ooms, E., Onwona Ansong, J., Lukic, I.,  et al. (2019). Addressing conflicting spatial demands in MSP -– Considerations for MSP planners. https://doi.org/https://data.europa.eu/doi/10.2826/151447"^^xsd:string;#add relevant articles
+	dc:bibliographicCitation ""^^xsd:string;
+	#use the DOI here when relevant, it could also be a list of relevant literature
+	dc:created "2024-01-14T11:04:00Z"^^xsd:date;
+
+	dc:creator [
+		vcard:fn "Magali D. do Patrocínio Gonçalves"^^xsd:string;
+			a vcard:Individual;
+			vcard:email "goncalves.m@buas.nl";
+		vcard:Organization <https://www.buas.nl>;
+			a vcard:Organization;
+			vcard:fn "Breda University of Applied Sciences",
+				"BUas"];
+			
+	dc:contributor "Magali D. do Patrocínio Gonçalves"^^xsd:string;
+	dc:rights <https://www.gnu.org/licenses/gpl-3.0.txt>,
+	<https://www.gnu.org/licenses/gpl-3.0.html>;
+	dc:publisher [
+	foaf:name "mspwf";
+	foaf:homepage <http://WFRrepo.info> ];
+	#(This page does not exist)
+	dc:accessRights <https://www.gnu.org/licenses/gpl-3.0.txt>,
+	<https://www.gnu.org/licenses/gpl-3.0.html>;
+	dc:rightsHolder ""^^xsd:string;
+	dc:version "1.1"^^xsd:string;
+	dcat:theme <https://inspire.ec.europa.eu/theme/er>,
+	mspv:SpatialSuitability;
+	irao:DevelopmentStatus "stable";
+	dc:provenance [
+		dc:contributor "Magali D. do Patrocínio Gonçalves"^^xsd:string;
+		dc:ProvenanceStatement	"Changed safety buffer distance arround shipping lanes to 500m instead of 1000m."^^xsd:string ;
+		dc:replaces "";
+		dc:isReplacedBy ""^^xsd:string;
+		dc:modified "2024-02-01T00:00:00Z"^^xsd:date;
+		dc:isVersionOf <http://WFRepo/MSP/workflow/windFarmSpatialSuitabilityV1.0> ] ;
+		dc:format <https://www.w3.org/TR/turtle/> ;
+	dc:language <http://publications.europa.eu/resource/authority/language/ENG>;
+	
+	mspwf:hasInput <https://emodnet.ec.europa.eu/geonetwork/srv/resources/resources/8201070b-4b0b-4d54-8910-abcea5dce57f>,
+			<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/3e65fa1b-9bb1-41bd-9760-76962751b839>,
+			<https://emodnet.ec.europa.eu/geonetwork/srv/resources/resources/ddbe3597-4e3f-4e74-8d31-947c4efef2e9>;
+			
+	mspwf:hasOutput <http://WFRepo/MSP/data/WindFarms_20221219_EPSG28992V1.1>,
+		<http://WFRepo/MSP/data/DutchWindFarms_20221219_EPSG28992V1.1>,
+		<http://WFRepo/MSP/data/DutchWindFarms_20221219_EPSG28992_500m_SafetyBufferAreaV1.1>,
+		<http://WFRepo/MSP/data/DutchShippingLanes_500m_SafetyBufferAreaV1.1>,
+		<http://WFRepo/MSP/data/OG_Offshore_Installations_20220422_EPSG28992V1.1>,
+		<http://WFRepo/MSP/data/DutchOG_Offshore_Installations_20220422_EPSG28992V1.1>,
+		<http://WFRepo/MSP/data/DutchOG_Offshore_Installations_20220422_EPSG28992SafetyBufferAreaV1.1>,
+		<http://WFRepo/MSP/data/SpatialNotSuitableDutchOffshoreWindFarmV1.1>,
+		<http://WFRepo/MSP/data/SpatialSuitableDutchOffshoreWindFarmV1.1>.
+
+#mspd:output rdfs:subClassOf msp:data.
+mspd:intermediateOutput rdfs:subClassOf msp:data.
+mspd:finalOutput rdfs:subClassOf msp:data.
+mspd:input rdfs:subClassOf msp:data .
+mspwf:subWorkflow rdfs:subClassOf msp:workflow. 
+
+<https://emodnet.ec.europa.eu/geonetwork/srv/resources/resources/8201070b-4b0b-4d54-8910-abcea5dce57f> a mspd:input,
+	ccd:ObjectVector, ccd:region;
+	msp:hasVocabTerm mspv:windFarms, mspv:windParks, mspv:renewableEnergy, mspv:greenEnergy, <https://inspire.ec.europa.eu/theme/er>, mspv:hardUses.
+<https://www.nationaalgeoregister.nl/geonetwork/srv/api/records/3e65fa1b-9bb1-41bd-9760-76962751b839> a mspd:input,
+	ccd:ObjectVector, ccd:line;
+	msp:hasVocabTerm mspv:shippingRoutes, mspv:shippingLanes, mspv:softUses.
+<https://emodnet.ec.europa.eu/geonetwork/srv/resources/resources/ddbe3597-4e3f-4e74-8d31-947c4efef2e9> a mspd:input,
+	ccd:ObjectVector, ccd:point;
+	msp:hasVocabTerm mspv:oilGasPlatforms, mspv:oilGasOffshoreInstallations, mspv:hardUses.
+<http://WFRepo/MSP/data/WindFarms_20221219_EPSG28992V1.1> a mspd:intermediateOutput,
+	ccd:ObjectVector, ccd:region;
+	msp:hasVocabTerm mspv:windFarms, mspv:windParks, mspv:renewableEnergy, mspv:greenEnergy, <https://inspire.ec.europa.eu/theme/er>, mspv:hardUses.
+<http://WFRepo/MSP/data/DutchWindFarms_20221219_EPSG28992V1.1> a mspd:intermediateOutput,
+	ccd:ObjectVector, ccd:region;
+ 	msp:hasVocabTerm mspv:windFarms, mspv:windParks, mspv:renewableEnergy, mspv:greenEnergy, <https://inspire.ec.europa.eu/theme/er>, mspv:hardUses.
+<http://WFRepo/MSP/data/DutchWindFarms_20221219_EPSG28992_500m_SafetyBufferAreaV1.1> a mspd:intermediateOutput,
+	ccd:ObjectVector, ccd:region;
+msp:hasVocabTerm mspv:safetyBufferAreas, mspv:windFarms, mspv:windParks, mspv:renewableEnergy, mspv:greenEnergy, <https://inspire.ec.europa.eu/theme/er>, mspv:hardUses.
+<http://WFRepo/MSP/DutchShippingLanes_500m_SafetyBufferAreaV1.1> a mspd:intermediateOutput,
+	ccd:ObjectVector, ccd:region;
+	msp:hasVocabTerm mspv:safetyBufferAreas, mspv:shippingRoutes, mspv:shippingLanes, mspv:softUses.
+<http://WFRepo/MSP/data/OG_Offshore_Installations_20220422_EPSG28992V1.1> a mspd:intermediateOutput,
+	ccd:ObjectVector, ccd:point;
+	msp:hasVocabTerm mspv:oilGasPlatforms, mspv:oilGasOffshoreInstallations, mspv:hardUses.
+<http://WFRepo/MSP/data/DutchOG_Offshore_Installations_20220422_EPSG28992V1.1> a mspd:intermediateOutput,
+	ccd:ObjectVector, ccd:point;
+msp:hasVocabTerm mspv:oilGasPlatforms, mspv:oilGasOffshoreInstallations, mspv:hardUses.
+<http://WFRepo/MSP/data/DutchOG_Offshore_Installations_20220422_EPSG28992SafetyBufferAreaV1.1> a mspd:intermediateOutput,
+	ccd:ObjectVector, ccd:region;
+	msp:hasVocabTerm mspv:oilGasPlatforms, mspv:oilGasOffshoreInstallations, mspv:hardUses, mspv:safetyBufferAreas.
+<http://WFRepo/MSP/data/SpatiallyNotSuitableDutchOffshoreWindFarmV1.1> a mspd:intermediateOutput,
+	ccd:ObjectVector, ccd:region;
+	msp:hasVocabTerm mspv:spatiallyNotSuitableAreas.
+<http://WFRepo/MSP/data/SpatiallySuitableDutchOffshoreWindFarmV1.1> a mspd:FinalOutput,
+	ccd:ObjectVector, ccd:region;
+	msp:hasVocabTerm mspv:spatiallySuitable, mspv:suitable, mspv:appropriate.
+
+# more details regarding metadata
+dcat:theme dc:VocabularyEncodingScheme "controlled vocabulary: GEMET - INSPIRE themes, version 1.0 (reference date: 2008-06-01)".
+dcat:keyword	dc:VocabularyEncodingScheme "controlled vocabulary: GEMET - INSPIRE themes, version 1.0 (reference date: 2008-06-01)".
+	
+<http://publications.europa.eu/resource/authority/language/ENG>
+  a skos:Concept, dc:LinguisticSystem ;
+  skos:prefLabel "English"@en, "Englisch"@de, "anglais"@fr, "Engels"@nl ;
+  skos:inScheme <http://publications.europa.eu/resource/authority/language> .

@@ -1,0 +1,231 @@
+@prefix owl: <https://www.w3.org/TR/2004/REC-owl-semantics-20040210/#> . 
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix msp: <http://WFRepo/MSP/> .
+@prefix mspv: <http://WFRepo/MSP/vocabulary/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix mspwf: <http://WFRepo/MSP/workflow/> .
+
+#Data preparation (not going to repeat)
+mspv:dataPreparation a msp:vocabulary;
+	skos:prefLabel "Data Preparation";
+	dc:partOf mspv:marineSpatialPlanning.
+
+mspv:marineSpatialPlanning  a msp:vocabulary;
+	skos:prefLabel "Marine Spatial Planning";
+	dc:hasPart mspv:dataPreparation, mspv:suitabilityAnalysis, mspv:environmentalSuitabilityAnalysis, mspv:spatialSuitabilityAnalysis, mspv:networkAnalysis .
+	
+mspv:suitabilityAnalysis a msp:vocabulary;
+	skos:prefLabel "Suitability Analysis";
+	dc:hasPart mspv:environmentalSuitabilityAnalysis, mspv:spatialSuitabilityAnalysis.
+
+mspv:environmentalSuitabilityAnalysis a msp:vocabulary;
+	dc:isPartOf mspv:suitabilityAnalysis, mspv:marineSpatialPlanning;
+	skos:prefLabel "Environmental Suitability Analysis".
+	
+mspv:spatialSuitabilityAnalysis a msp:vocabulary;
+	dc:isPartOf mspv:suitabilityAnalysis;
+	skos:prefLabel "Spatial Suitability Analysis";
+	dc:partOf mspv:suitabilityAnalysis, mspv:marineSpatialPlanning.	
+
+mspv:networkAnalysis  a msp:vocabulary;
+	skos:prefLabel "Network Analysis".
+
+mspv:bathymetry  a msp:vocabulary;
+	skos:prefLabel "Bathymetry";
+	dc:isPartOf mspv:environmentalConditions, <http://inspire.ec.europa.eu/theme/el>;
+	owl:sameAs mspv:depth.
+	
+mspv:depth  a msp:vocabulary;
+	skos:prefLabel "Depth";
+	dc:isPartOf mspv:environmentalConditions, <http://inspire.ec.europa.eu/theme/el>;
+	owl:sameAs mspv:bathymetry. 
+#data theme
+<http://inspire.ec.europa.eu/theme/el>  a msp:vocabulary;
+	skos:prefLabel "Elevation".
+
+#data theme
+<http://inspire.ec.europa.eu/theme/ps>  a msp:vocabulary;
+	skos:prefLabel "Protected Sites"@eng.
+mspv:MarineProtectedAreas a msp:vocabulary;
+	skos:prefLabel "Marine Protected Areas";
+	dc:isPartOf mspv:MarineProtection, #mspv:MarineConservation, 
+	mspv:softUses, <http://inspire.ec.europa.eu/theme/ps>;
+	owl:sameAs mspv:MPA .
+mspv:MPA a msp:vocabulary;
+	skos:prefLabel "MPA";
+	dc:isPartOf mspv:MarineProtection, #mspv:MarineConservation, 
+	mspv:softUses, <http://inspire.ec.europa.eu/theme/ps> ;
+	owl:sameAs 	mspv:MarineProtectedAreas.
+	
+mspv:MarineProtection  a msp:vocabulary;
+	skos:prefLabel "Marine Protection";
+	dc:isPartOf mspv:environmentalConservation, mspv:environmentalProtection, mspv:softUses;
+	dc:hasPart mspv:MarineProtectedAreas ;
+	owl:sameAs 	mspv:MarineConservation.
+	
+mspv:MarineConservation	 a msp:vocabulary;
+	skos:prefLabel "Marine Conservation";
+	dc:isPartOf mspv:environmentalConservation, mspv:environmentalProtection;
+	owl:sameAs 	mspv:MarineProtection.
+	
+mspv:environmentalConservation  a msp:vocabulary;
+	skos:prefLabel "Environmental Conservation";
+	owl:sameAs 	mspv:environmentalProtection.
+	
+mspv:environmentalProtection  a msp:vocabulary;
+	skos:prefLabel "Environmental Protection";
+	owl:sameAs 	mspv:environmentalConservation.
+mspv:connectivity  a msp:vocabulary;
+	skos:prefLabel "Connectivity". 
+
+mspv:environmentalConditions  a msp:vocabulary;
+	mspv:influence mspv:environmentalSuitability;
+	skos:preLabel "Environmental Conditions";
+	dc:hasPart mspv:bathymetry,mspv:depth, mspv:sediment, mspv:seabed, mspv:substrate.
+
+mspv:renewableEnergy a msp:vocabulary;
+	skos:prefLabel "Renewable Energy";
+	dc:isPartOf mspv:hardUses, <https://inspire.ec.europa.eu/theme/er>;
+	dc:hasPart mspv:windFarms;
+	owl:sameAs mspv:greenEnergy.
+	
+mspv:greenEnergy a msp:vocabulary;
+	skos:prefLabel "Green Energy";
+	dc:isPartOf mspv:hardUses, <https://inspire.ec.europa.eu/theme/er>;
+	dc:hasPart mspv:windFarms;
+	owl:sameAs mspv:renewableEnergy.
+	
+<https://inspire.ec.europa.eu/theme/er> a msp:vocabulary;
+	skos:prefLabel "Energy Resources".
+	
+mspv:influence a msp:vocabulary;
+	skos:prefLabel "Influence".
+mspv:environmentalSuitability a msp:vocabulary;
+	skos:prefLabel "Environmental Suitability".
+
+mspv:offshore a msp:vocabulary;
+	skos:prefLabel "Offshore".
+
+mspv:sediment a msp:vocabulary;
+	skos:prefLabel "Sediment"; 
+	dc:isPartOf mspv:environmentalConditions;
+	owl:sameAs mspv:substrate.
+	
+mspv:seabed a msp:vocabulary;
+	skos:prefLabel "Seabed"; 
+	dc:isPartOf mspv:environmentalConditions. 
+
+mspv:substrate a msp:vocabulary;
+	skos:prefLabel "Substrate"; 
+	dc:isPartOf mspv:environmentalConditions;
+	owl:sameAs mspv:sediment.
+	
+mspv:environmentallySuitableAreas a msp:vocabulary;
+	skos:prefLabel "Environmentally Suitable Areas"; 
+	mspwf:isOutputof mspv:environmentalSuitabilityAnalysis. 
+
+mspv:suitable a msp:vocabulary;
+	skos:prefLabel "Suitable";
+	owl:sameAs mspv:appropriate.
+	
+mspv:appropriate a msp:vocabulary;
+	skos:prefLabel "Appropriate";
+	owl:sameAs mspv:suitable.
+	
+mspv:suitability a msp:vocabulary;
+	skos:prefLabel "Suitability".
+mspv:sitting a msp:vocabulary;
+	skos:prefLabel "Sitting";
+	owl:sameAs mspv:allocation.
+	
+mspv:allocation a msp:vocabulary;
+	skos:prefLabel "Allocation", "Sitting";
+	owl:sameAs mspv:sitting.
+	
+mspv:hardUses a msp:vocabulary;
+	mspv:influence mspv:spatialSuitability;
+	skos:prefLabel "Hard Uses";
+	dc:hasPart mspv:windFarms, mspv:windParks, mspv:oilGasPlatforms, mspv:oilGasOffshoreInstallations.
+	
+mspv:softUses a msp:vocabulary;
+	mspv:influence mspv:spatialSuitability;
+	skos:prefLabel "Soft Uses";
+	dc:hasPart mspv:shippingRoutes, mspv:shippingLanes, mspv:MarineProtectedAreas, mspv:MPA.
+
+mspv:windFarms a msp:vocabulary;
+	skos:prefLabel "Wind Farms"; 
+	dc:requires mspv:safetyBufferAreas;
+	dc:isPartOf mspv:hardUses, mspv:renewableEnergy, <https://inspire.ec.europa.eu/theme/er>;
+	owl:sameAs mspv:windParks.
+
+mspv:windParks a msp:vocabulary;
+	skos:prefLabel "Wind Parks"; 
+	dc:requires mspv:safetyBufferAreas;
+	dc:isPartOf mspv:hardUses, mspv:renewableEnergy, <https://inspire.ec.europa.eu/theme/er>;
+	owl:sameAs mspv:windFarms.
+
+mspv:shippingRoutes a msp:vocabulary;
+	skos:prefLabel "Shipping Routes";
+	dc:isPartOf mspv:shipping, mspv:softUses, <https://inspire.ec.europa.eu/theme/tn>;
+	dc:requires mspv:safetyBufferAreas;
+	owl:sameAs mspv:shippingLanes.
+	
+mspv:shippingLanes a msp:vocabulary;
+	skos:prefLabel "Shipping Lanes";
+	dc:isPartOf mspv:shipping, mspv:softUses, <https://inspire.ec.europa.eu/theme/tn>;
+	dc:requires mspv:safetyBufferAreas;
+	owl:sameAs mspv:shippingRoutes.
+	
+mspv:shipping a msp:vocabulary;
+	dc:isPartOf mspv:softUses, <https://inspire.ec.europa.eu/theme/tn>;
+	skos:prefLabel "Shipping", "Maritime Transportation".
+
+mspv:oilGasPlatforms a msp:vocabulary;
+	skos:prefLabel "Oil and Gas Platforms", "Oil and Gas Offhore Installations";
+	dc:isPartOf <https://inspire.ec.europa.eu/theme/er>, mspv:oilGasExplorationExploitation, mspv:fossilFuelEnergy, mspv:hardUses;
+	dc:requires mspv:safetyBufferAreas, mspv:hydrocarbons;
+	owl:sameAs mspv:oilGasOffshoreInstallations.
+
+mspv:oilGasOffshoreInstallations a msp:vocabulary;
+	skos:prefLabel "Oil and Gas Offhore Installations";
+	dc:isPartOf <https://inspire.ec.europa.eu/theme/er>, mspv:oilGasExplorationExploitation, mspv:fossilFuelEnergy, mspv:hardUses;
+	dc:requires mspv:safetyBufferAreas, mspv:hydrocarbons;
+	owl:sameAs mspv:oilGasPlatforms.
+
+mspv:oilGasExplorationExploitation 	a msp:vocabulary;
+	dc:isPartOf mspv:hardUses, mspv:greyEnergy, mspv:fossilFuelEnergy.
+
+mspv:safetyBufferAreas a msp:vocabulary;
+	skos:prefLabel  "Safety Buffer Areas".
+	
+mspv:fossilFuelEnergy a msp:vocabulary;
+	skos:prefLabel "Fossil Fuel Energy";
+	dc:isPartOf <https://inspire.ec.europa.eu/theme/er>, mspv:oilGasExplorationExploitation;
+	owl:sameAs mspv:greyEnergy.
+
+mspv:greyEnergy a msp:vocabulary;
+	skos:prefLabel "Grey Energy";
+	dc:isPartOf <https://inspire.ec.europa.eu/theme/er>;
+	owl:sameAs mspv:fossilFuelEnergy.
+	
+mspv:hydrocarbons a msp:vocabulary;
+	skos:prefLabel "Hydrocarbons";
+	dc:isPartOf <https://inspire.ec.europa.eu/theme/er>, mspv:greyEnergy, mspv:fossilFuelEnergy.
+	
+mspv:oilGasExplorationExploitation a msp:vocabulary;
+	skos:prefLabel "Oil and Gas Exploration and Exploitation";
+	dc:isPartOf <https://inspire.ec.europa.eu/theme/er>, mspv:fossilFuelEnergy, mspv:hardUses.
+	
+mspv:spatiallyNotSuitableAreas a msp:vocabulary;
+	skos:prefLabel "Not Suitable Areas";
+	dc:hasPart mspv:hardUses, mspv:softUses, mspv:safetyBufferAreas;
+	owl:inverseOf mspv:spatiallySuitable.
+
+mspv:spatiallySuitable a msp:vocabulary;
+	skos:prefLabel "Spatially Suitable". 
+	
+<https://inspire.ec.europa.eu/theme/tn>	a msp:vocabulary;
+	skos:prefLabel "Transport Networks".
+<http://inspire.ec.europa.eu/theme/ge> a msp:vocabulary;
+	skos:prefLabel "Geology".
+

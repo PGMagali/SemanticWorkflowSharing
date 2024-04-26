@@ -1,0 +1,68 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ns0: <http://www.w3.org/TR/void/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns1: <http://www.opengis.net/rdf#> .
+@prefix parameter: <http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#> .
+@prefix msp: <http://WFRepo/MSP/> .
+@prefix mspwf: <http://WFRepo/MSP/workflow/> .
+@prefix mspd: <http://WFRepo/MSP/data/> .
+@prefix mspv: <http://WFRepo/MSP/workflow/vocabulary/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+<http://WFRepo/MSP/data/distanceToMPAsBalticV0.7> a dcat:Dataset,
+  mspd:finalOutput;
+  dc:identifier "distanceToMPAsBaltic" ;
+  dc:title "Distance to MPAs in the Baltic" ;
+  dc:abstract "This layer contains lines connecting a 10km grid of points in the Baltic Sea to a proposed network of MPAs to which the distance to an MPA will be lower than 200km ";
+  dcat:keyword "MADS",
+  "Marine Protected Areas",
+  "MPA",
+  "Marine Protection",
+  "Marine Conservation";
+  dcat:theme <http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/GEMET%2520-%2520INSPIRE%2520themes%252C%2520version%25201.0/concepts/>, <http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/GEMET/concepts/>, <https://inspire.ec.europa.eu/metadata-codelist/TopicCategory/environment>, "environment", "conservation", "protection", "connectivity";
+  dc:spatial [
+    a <http://www.opengis.net/rdf#line> ;
+    ns1:asWKT """
+            <http://www.opengis.net/def/crs/OGC/1.3/CRS84>
+            Polygon((9.171427 52.525805, 9.171427 66.331433, 33.044318 66.331433, 33.044318 52.525805, 9.171427 52.525805))
+          """^^ns1:WKTLiteral;
+    rdfs:label "Baltic Sea"@en;
+    dc:isPartOf "Europe"@en
+    ] ;
+  	dcat:contactPoint [
+    a vcard:Organization ;
+    vcard:fn "HELCOM Secretariat"@en ;
+    vcard:hasEmail <mailto:data@helcom.fi> ;
+    a vcard:Organization ;
+    vcard:fn "MSP workflows"@en ;
+    vcard:hasTelephone "" ;
+    vcard:hasEmail "" ;
+    vcard:hasURL <http://WFRepo/MSP/workflow> 
+    ];
+  dc:temporal """2010-02-01
+          /
+          2022-12-31""" ;
+  dc:updated "2024-02-05" ;
+  dc:publisher "" ;
+  dc:language "eng" ;
+  dc:license "Use constraints: Data can be used freely given that the source (HELCOM) is cited.", <http://inspire.ec.europa.eu/metadata-codelist/LimitationsOnPublicAccess/noLimitations> ;
+  dcat:distribution "" ;
+  dcat:dataQuality """""" ;
+  dc:provenance [
+  	a dc:ProvenanceStatement;
+  	rdfs:label "The points layer was used to calculate the connectivity to the hubs, the Marine Protected Areas being the hubs.";
+ 	mspwf:referenceObject <http://localhost:8080/geonetwork/srv/resources/datasets/d27df8c0-de86-4d13-a06d-35a8f50b16fa>,
+ 		<http://WFRepo/MSP/data/10kmPointGridBaltic> ;
+	mspwf:distanceToHub [
+			parameter:hasParameter[
+			mspwf:parName "distance";
+			mspwf:parValue "units:km"]];
+			mspwf:opPurpose "Calculate the distance to the MPAs from equidistant network to evaluate connectivity"].
+
+<http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/GEMET%2520-%2520INSPIRE%2520themes%252C%2520version%25201.0/concepts/>
+  a skos:Concept ;
+  skos:inScheme <http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/GEMET%2520-%2520INSPIRE%2520themes%252C%2520version%25201.0> ;
+  skos:prefLabel "" .

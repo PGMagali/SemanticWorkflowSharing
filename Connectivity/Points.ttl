@@ -1,0 +1,51 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ns0: <http://www.w3.org/TR/void/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns1: <http://www.opengis.net/rdf#> .
+@prefix parameter: <http://www.ontologydesignpatterns.org/cp/owl/parameter.owl#> .
+@prefix msp: <http://WFRepo/MSP/> .
+@prefix mspwf: <http://WFRepo/MSP/workflow/> .
+@prefix mspd: <http://WFRepo/MSP/data/> .
+@prefix mspv: <http://WFRepo/MSP/workflow/vocabulary/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+<http://WFRepo/MSP/data/10kmPointGridBaltic> a dcat:Dataset,
+  mspd:input;
+  dc:identifier "10kmPointGridBaltic" ;
+  dc:title "Ten kilometer grid points covering the Baltic Sea" ;
+  dc:abstract "This layer contains a 10km points grid covering the Baltic Sea.";
+  dcat:keyword "Baltic Sea", "grid", "10km)";
+  dcat:theme "connectivity";
+  dc:spatial [
+    a <http://www.opengis.net/rdf#Point> ;
+    ns1:asWKT """
+            <http://www.opengis.net/def/crs/OGC/1.3/CRS84>
+            Polygon((9.171427 52.525805, 9.171427 66.331433, 33.044318 66.331433, 33.044318 52.525805, 9.171427 52.525805))
+          """^^ns1:WKTLiteral;
+    rdfs:label "Baltic Sea"@en;
+    dc:isPartOf "Europe"@en
+    ] ;
+  	dcat:contactPoint [
+    a vcard:Organization ;
+    vcard:fn "MSP workflows"@en ;
+    vcard:hasTelephone "" ;
+    vcard:hasEmail "" ;
+    vcard:hasURL <http://WFRepo/MSP/workflow> 
+    ];
+  dc:temporal """2010-02-01
+          /
+          2022-12-31""" ;
+  dc:updated "2024-02-05" ;
+  dc:publisher "" ;
+  dc:language "eng" ;
+  dc:license "Use constraints: Data can be used freely given that the source (HELCOM) is cited.", <http://inspire.ec.europa.eu/metadata-codelist/LimitationsOnPublicAccess/noLimitations> ;
+  dcat:distribution "" ;
+  dcat:dataQuality """""" .
+
+<http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/GEMET%2520-%2520INSPIRE%2520themes%252C%2520version%25201.0/concepts/>
+  a skos:Concept ;
+  skos:inScheme <http://localhost:8080/geonetwork/srv/resources/registries/vocabularies/GEMET%2520-%2520INSPIRE%2520themes%252C%2520version%25201.0> ;
+  skos:prefLabel "" .
